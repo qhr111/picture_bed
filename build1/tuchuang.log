@@ -1,0 +1,2198 @@
+20250119 04:49:02.457658Z INFO  db_host:127.0.0.1, db_port:3306, db_dbname:0voice_tuchuang, db_username:qhr, db_password:123456 - DBPool.cpp:635
+20250119 04:49:02.564211Z INFO  db_host:127.0.0.1, db_port:3306, db_dbname:0voice_tuchuang, db_username:qhr, db_password:123456 - DBPool.cpp:635
+20250119 04:49:02.617759Z INFO  row_num: 1 - DBPool.cpp:332
+20250119 04:49:02.617840Z INFO  count: 4 - ApiCommon.cpp:199
+20250119 04:49:02.618688Z INFO  server start listen on:For http://%0.0.0.0:8081 - main.cpp:165
+20250119 04:49:02.618733Z INFO  now enter the event loop... - main.cpp:168
+20250119 04:49:07.561336Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 04:49:07.561440Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 04:49:07.561510Z INFO  user_name:qhrrr, token:qmgbbuqcljjivswmdkqtbxixmvtrrblj, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 04:49:07.561788Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 04:49:07.561948Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 04:49:07.563182Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 04:49:07.563665Z INFO  write complete - HttpConn.cpp:490
+20250119 04:49:10.186186Z INFO  url: /api/dealfile?cmd=pv - HttpConn.cpp:233
+20250119 04:49:10.186208Z INFO  cmd =pv - ApiDealfile.cpp:469
+20250119 04:49:10.186250Z INFO  user_name:qhrrr, token:qmgbbuqcljjivswmdkqtbxixmvtrrblj, md5:013bfe36ea3c50f696397ad084527ad7, filename:密码.txt - ApiDealfile.cpp:478
+20250119 04:49:10.186473Z INFO  执行: select pv, shared_status from user_file_list where user = 'qhrrr' and md5 = '013bfe36ea3c50f696397ad084527ad7' and file_name = '密码.txt' - ApiDealfile.cpp:399
+20250119 04:49:10.187502Z INFO  row_num: 1 - DBPool.cpp:332
+20250119 04:49:10.187596Z INFO  执行: update user_file_list set pv = 8 where user = 'qhrrr' and md5 = '013bfe36ea3c50f696397ad084527ad7' and file_name = '密码.txt' - ApiDealfile.cpp:416
+20250119 04:49:10.198156Z INFO  执行: update share_file_list set pv = 8 where user = 'qhrrr' and md5 = '013bfe36ea3c50f696397ad084527ad7' and file_name = '密码.txt' - ApiDealfile.cpp:427
+20250119 04:49:10.205887Z INFO  str_json: {"code":0}
+ - ApiDealfile.cpp:69
+20250119 04:49:10.206115Z INFO  write complete - HttpConn.cpp:490
+20250119 04:49:10.403167Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 04:49:10.403180Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 04:49:10.403206Z INFO  user_name:qhrrr, token:qmgbbuqcljjivswmdkqtbxixmvtrrblj, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 04:49:10.403475Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 04:49:10.403824Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 04:49:10.404967Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 04:49:10.405482Z INFO  write complete - HttpConn.cpp:490
+20250119 04:49:11.741903Z INFO  url: /api/sharefiles?cmd=pvdesc - HttpConn.cpp:233
+20250119 04:49:11.741944Z INFO   post_data: {"count":2,"start":0} - ApiSharefiles.cpp:377
+20250119 04:49:11.741953Z INFO  cmd = pvdesc - ApiSharefiles.cpp:381
+20250119 04:49:11.742316Z INFO  sql_num: 4, redis_num: 4 - ApiSharefiles.cpp:244
+20250119 04:49:11.742824Z INFO  write complete - HttpConn.cpp:490
+20250119 04:49:12.384112Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 04:49:12.384149Z INFO   post_data: {"count":2,"start":0} - ApiSharefiles.cpp:377
+20250119 04:49:12.384158Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 04:49:12.384602Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 2 - ApiSharefiles.cpp:147
+20250119 04:49:12.385629Z INFO  row_num: 2 - DBPool.cpp:332
+20250119 04:49:12.385936Z INFO  write complete - HttpConn.cpp:490
+20250119 04:49:12.561150Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 04:49:12.561183Z INFO   post_data: {"count":2,"start":0} - ApiSharefiles.cpp:377
+20250119 04:49:12.561193Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 04:49:12.561670Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 2 - ApiSharefiles.cpp:147
+20250119 04:49:12.562774Z INFO  row_num: 2 - DBPool.cpp:332
+20250119 04:49:12.563106Z INFO  write complete - HttpConn.cpp:490
+20250119 04:49:13.696075Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 04:49:13.696115Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 04:49:13.696178Z INFO  user_name:qhrrr, token:qmgbbuqcljjivswmdkqtbxixmvtrrblj, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 04:49:13.696498Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 04:49:13.696654Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 04:49:13.697710Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 04:49:13.698300Z INFO  write complete - HttpConn.cpp:490
+20250119 04:49:17.169094Z INFO  url: /api/dealfile?cmd=pv - HttpConn.cpp:233
+20250119 04:49:17.169141Z INFO  cmd =pv - ApiDealfile.cpp:469
+20250119 04:49:17.169199Z INFO  user_name:qhrrr, token:qmgbbuqcljjivswmdkqtbxixmvtrrblj, md5:3d347a8ad8f6e9bf855f57038cf11e2f, filename:原子操作-VIP.png - ApiDealfile.cpp:478
+20250119 04:49:17.169733Z INFO  执行: select pv, shared_status from user_file_list where user = 'qhrrr' and md5 = '3d347a8ad8f6e9bf855f57038cf11e2f' and file_name = '原子操作-VIP.png' - ApiDealfile.cpp:399
+20250119 04:49:17.170787Z INFO  row_num: 1 - DBPool.cpp:332
+20250119 04:49:17.170842Z INFO  执行: update user_file_list set pv = 7 where user = 'qhrrr' and md5 = '3d347a8ad8f6e9bf855f57038cf11e2f' and file_name = '原子操作-VIP.png' - ApiDealfile.cpp:416
+20250119 04:49:17.177822Z INFO  str_json: {"code":0}
+ - ApiDealfile.cpp:69
+20250119 04:49:17.177902Z INFO  write complete - HttpConn.cpp:490
+20250119 04:49:17.363217Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 04:49:17.363255Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 04:49:17.363324Z INFO  user_name:qhrrr, token:qmgbbuqcljjivswmdkqtbxixmvtrrblj, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 04:49:17.363675Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 04:49:17.363907Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 04:49:17.365203Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 04:49:17.365667Z INFO  write complete - HttpConn.cpp:490
+20250119 04:49:21.101090Z INFO  url: /api/dealfile?cmd=pv - HttpConn.cpp:233
+20250119 04:49:21.101112Z INFO  cmd =pv - ApiDealfile.cpp:469
+20250119 04:49:21.101173Z INFO  user_name:qhrrr, token:qmgbbuqcljjivswmdkqtbxixmvtrrblj, md5:3d347a8ad8f6e9bf855f57038cf11e2f, filename:原子操作-VIP.png - ApiDealfile.cpp:478
+20250119 04:49:21.101376Z INFO  执行: select pv, shared_status from user_file_list where user = 'qhrrr' and md5 = '3d347a8ad8f6e9bf855f57038cf11e2f' and file_name = '原子操作-VIP.png' - ApiDealfile.cpp:399
+20250119 04:49:21.112399Z INFO  row_num: 1 - DBPool.cpp:332
+20250119 04:49:21.112482Z INFO  执行: update user_file_list set pv = 8 where user = 'qhrrr' and md5 = '3d347a8ad8f6e9bf855f57038cf11e2f' and file_name = '原子操作-VIP.png' - ApiDealfile.cpp:416
+20250119 04:49:21.120532Z INFO  str_json: {"code":0}
+ - ApiDealfile.cpp:69
+20250119 04:49:21.120614Z INFO  write complete - HttpConn.cpp:490
+20250119 04:49:21.319849Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 04:49:21.319921Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 04:49:21.319984Z INFO  user_name:qhrrr, token:qmgbbuqcljjivswmdkqtbxixmvtrrblj, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 04:49:21.320328Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 04:49:21.320510Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 04:49:21.321592Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 04:49:21.322030Z INFO  write complete - HttpConn.cpp:490
+20250119 04:50:30.935557Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 04:50:30.935601Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 04:50:30.935666Z INFO  user_name:qhrrr, token:qmgbbuqcljjivswmdkqtbxixmvtrrblj, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 04:50:30.943517Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 04:50:30.943855Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 04:50:30.945322Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 04:50:30.945874Z INFO  write complete - HttpConn.cpp:490
+20250119 04:50:33.655256Z INFO  url: /api/dealfile?cmd=pv - HttpConn.cpp:233
+20250119 04:50:33.655278Z INFO  cmd =pv - ApiDealfile.cpp:469
+20250119 04:50:33.655318Z INFO  user_name:qhrrr, token:qmgbbuqcljjivswmdkqtbxixmvtrrblj, md5:3d347a8ad8f6e9bf855f57038cf11e2f, filename:原子操作-VIP.png - ApiDealfile.cpp:478
+20250119 04:50:33.655597Z INFO  执行: select pv, shared_status from user_file_list where user = 'qhrrr' and md5 = '3d347a8ad8f6e9bf855f57038cf11e2f' and file_name = '原子操作-VIP.png' - ApiDealfile.cpp:399
+20250119 04:50:33.656610Z INFO  row_num: 1 - DBPool.cpp:332
+20250119 04:50:33.656681Z INFO  执行: update user_file_list set pv = 9 where user = 'qhrrr' and md5 = '3d347a8ad8f6e9bf855f57038cf11e2f' and file_name = '原子操作-VIP.png' - ApiDealfile.cpp:416
+20250119 04:50:33.663009Z INFO  str_json: {"code":0}
+ - ApiDealfile.cpp:69
+20250119 04:50:33.663092Z INFO  write complete - HttpConn.cpp:490
+20250119 04:50:57.784636Z INFO  url: /api/dealfile?cmd=pv - HttpConn.cpp:233
+20250119 04:50:57.784675Z INFO  cmd =pv - ApiDealfile.cpp:469
+20250119 04:50:57.784743Z INFO  user_name:qhrrr, token:qmgbbuqcljjivswmdkqtbxixmvtrrblj, md5:3d347a8ad8f6e9bf855f57038cf11e2f, filename:原子操作-VIP.png - ApiDealfile.cpp:478
+20250119 04:50:57.785150Z INFO  执行: select pv, shared_status from user_file_list where user = 'qhrrr' and md5 = '3d347a8ad8f6e9bf855f57038cf11e2f' and file_name = '原子操作-VIP.png' - ApiDealfile.cpp:399
+20250119 04:50:57.786209Z INFO  row_num: 1 - DBPool.cpp:332
+20250119 04:50:57.786270Z INFO  执行: update user_file_list set pv = 10 where user = 'qhrrr' and md5 = '3d347a8ad8f6e9bf855f57038cf11e2f' and file_name = '原子操作-VIP.png' - ApiDealfile.cpp:416
+20250119 04:50:57.795508Z INFO  str_json: {"code":0}
+ - ApiDealfile.cpp:69
+20250119 04:50:57.795595Z INFO  write complete - HttpConn.cpp:490
+20250119 04:54:14.085880Z INFO  url: /api/dealfile?cmd=pv - HttpConn.cpp:233
+20250119 04:54:14.085922Z INFO  cmd =pv - ApiDealfile.cpp:469
+20250119 04:54:14.085998Z INFO  user_name:qhrrr, token:qmgbbuqcljjivswmdkqtbxixmvtrrblj, md5:3d347a8ad8f6e9bf855f57038cf11e2f, filename:原子操作-VIP.png - ApiDealfile.cpp:478
+20250119 04:54:14.086294Z INFO  执行: select pv, shared_status from user_file_list where user = 'qhrrr' and md5 = '3d347a8ad8f6e9bf855f57038cf11e2f' and file_name = '原子操作-VIP.png' - ApiDealfile.cpp:399
+20250119 04:54:14.087206Z INFO  row_num: 1 - DBPool.cpp:332
+20250119 04:54:14.087254Z INFO  执行: update user_file_list set pv = 11 where user = 'qhrrr' and md5 = '3d347a8ad8f6e9bf855f57038cf11e2f' and file_name = '原子操作-VIP.png' - ApiDealfile.cpp:416
+20250119 04:54:14.094793Z INFO  str_json: {"code":0}
+ - ApiDealfile.cpp:69
+20250119 04:54:14.094871Z INFO  write complete - HttpConn.cpp:490
+20250119 04:54:15.792793Z INFO  url: /api/dealfile?cmd=pv - HttpConn.cpp:233
+20250119 04:54:15.792843Z INFO  cmd =pv - ApiDealfile.cpp:469
+20250119 04:54:15.792903Z INFO  user_name:qhrrr, token:qmgbbuqcljjivswmdkqtbxixmvtrrblj, md5:3d347a8ad8f6e9bf855f57038cf11e2f, filename:原子操作-VIP.png - ApiDealfile.cpp:478
+20250119 04:54:15.793189Z INFO  执行: select pv, shared_status from user_file_list where user = 'qhrrr' and md5 = '3d347a8ad8f6e9bf855f57038cf11e2f' and file_name = '原子操作-VIP.png' - ApiDealfile.cpp:399
+20250119 04:54:15.794588Z INFO  row_num: 1 - DBPool.cpp:332
+20250119 04:54:15.794669Z INFO  执行: update user_file_list set pv = 12 where user = 'qhrrr' and md5 = '3d347a8ad8f6e9bf855f57038cf11e2f' and file_name = '原子操作-VIP.png' - ApiDealfile.cpp:416
+20250119 04:54:15.801692Z INFO  str_json: {"code":0}
+ - ApiDealfile.cpp:69
+20250119 04:54:15.801776Z INFO  write complete - HttpConn.cpp:490
+20250119 04:58:27.938232Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 04:58:27.938275Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 04:58:27.938337Z INFO  user_name:qhrrr, token:qmgbbuqcljjivswmdkqtbxixmvtrrblj, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 04:58:27.938718Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 04:58:27.938915Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 04:58:27.940210Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 04:58:27.940784Z INFO  write complete - HttpConn.cpp:490
+20250119 04:58:29.918303Z INFO  url: /api/dealfile?cmd=pv - HttpConn.cpp:233
+20250119 04:58:29.918325Z INFO  cmd =pv - ApiDealfile.cpp:469
+20250119 04:58:29.918365Z INFO  user_name:qhrrr, token:qmgbbuqcljjivswmdkqtbxixmvtrrblj, md5:3d347a8ad8f6e9bf855f57038cf11e2f, filename:原子操作-VIP.png - ApiDealfile.cpp:478
+20250119 04:58:29.918656Z INFO  执行: select pv, shared_status from user_file_list where user = 'qhrrr' and md5 = '3d347a8ad8f6e9bf855f57038cf11e2f' and file_name = '原子操作-VIP.png' - ApiDealfile.cpp:399
+20250119 04:58:29.919608Z INFO  row_num: 1 - DBPool.cpp:332
+20250119 04:58:29.919655Z INFO  执行: update user_file_list set pv = 13 where user = 'qhrrr' and md5 = '3d347a8ad8f6e9bf855f57038cf11e2f' and file_name = '原子操作-VIP.png' - ApiDealfile.cpp:416
+20250119 04:58:29.927040Z INFO  str_json: {"code":0}
+ - ApiDealfile.cpp:69
+20250119 04:58:29.927127Z INFO  write complete - HttpConn.cpp:490
+20250119 04:58:59.410792Z INFO  url: /api/dealfile?cmd=pv - HttpConn.cpp:233
+20250119 04:58:59.410835Z INFO  cmd =pv - ApiDealfile.cpp:469
+20250119 04:58:59.410909Z INFO  user_name:qhrrr, token:qmgbbuqcljjivswmdkqtbxixmvtrrblj, md5:3d347a8ad8f6e9bf855f57038cf11e2f, filename:原子操作-VIP.png - ApiDealfile.cpp:478
+20250119 04:58:59.411242Z INFO  执行: select pv, shared_status from user_file_list where user = 'qhrrr' and md5 = '3d347a8ad8f6e9bf855f57038cf11e2f' and file_name = '原子操作-VIP.png' - ApiDealfile.cpp:399
+20250119 04:58:59.412205Z INFO  row_num: 1 - DBPool.cpp:332
+20250119 04:58:59.412258Z INFO  执行: update user_file_list set pv = 14 where user = 'qhrrr' and md5 = '3d347a8ad8f6e9bf855f57038cf11e2f' and file_name = '原子操作-VIP.png' - ApiDealfile.cpp:416
+20250119 04:58:59.419679Z INFO  str_json: {"code":0}
+ - ApiDealfile.cpp:69
+20250119 04:58:59.419828Z INFO  write complete - HttpConn.cpp:490
+20250119 05:00:11.561509Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 05:00:11.561552Z INFO   post_data: {"count":2,"start":0} - ApiSharefiles.cpp:377
+20250119 05:00:11.561560Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 05:00:11.562005Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 2 - ApiSharefiles.cpp:147
+20250119 05:00:11.562973Z INFO  row_num: 2 - DBPool.cpp:332
+20250119 05:00:11.563335Z INFO  write complete - HttpConn.cpp:490
+20250119 05:00:46.416194Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 05:00:46.416240Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 05:00:46.416304Z INFO  user_name:qhrrr, token:qmgbbuqcljjivswmdkqtbxixmvtrrblj, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 05:00:46.416652Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 05:00:46.416876Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 05:00:46.417958Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 05:00:46.418394Z INFO  write complete - HttpConn.cpp:490
+20250119 05:04:23.530536Z INFO  url: /api/dealfile?cmd=pv - HttpConn.cpp:233
+20250119 05:04:23.530551Z INFO  cmd =pv - ApiDealfile.cpp:469
+20250119 05:04:23.530578Z INFO  user_name:qhrrr, token:qmgbbuqcljjivswmdkqtbxixmvtrrblj, md5:68f37d2d9800703746479afd9581bfe9, filename:atomic.h - ApiDealfile.cpp:478
+20250119 05:04:23.531110Z INFO  执行: select pv, shared_status from user_file_list where user = 'qhrrr' and md5 = '68f37d2d9800703746479afd9581bfe9' and file_name = 'atomic.h' - ApiDealfile.cpp:399
+20250119 05:04:23.532306Z INFO  row_num: 1 - DBPool.cpp:332
+20250119 05:04:23.532360Z INFO  执行: update user_file_list set pv = 1 where user = 'qhrrr' and md5 = '68f37d2d9800703746479afd9581bfe9' and file_name = 'atomic.h' - ApiDealfile.cpp:416
+20250119 05:04:23.539836Z INFO  执行: update share_file_list set pv = 1 where user = 'qhrrr' and md5 = '68f37d2d9800703746479afd9581bfe9' and file_name = 'atomic.h' - ApiDealfile.cpp:427
+20250119 05:04:23.546935Z INFO  str_json: {"code":0}
+ - ApiDealfile.cpp:69
+20250119 05:04:23.547079Z INFO  write complete - HttpConn.cpp:490
+20250119 05:04:26.877767Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 05:04:26.877790Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 05:04:26.877830Z INFO  user_name:qhrrr, token:qmgbbuqcljjivswmdkqtbxixmvtrrblj, start:10, count:10 - ApiMyfiles.cpp:340
+20250119 05:04:26.878014Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 05:04:26.878170Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 10, 10 - ApiMyfiles.cpp:237
+20250119 05:04:26.879298Z INFO  row_num: 2 - DBPool.cpp:332
+20250119 05:04:26.879493Z INFO  write complete - HttpConn.cpp:490
+20250119 05:04:28.678019Z INFO  url: /api/dealfile?cmd=pv - HttpConn.cpp:233
+20250119 05:04:28.678066Z INFO  cmd =pv - ApiDealfile.cpp:469
+20250119 05:04:28.678126Z INFO  user_name:qhrrr, token:qmgbbuqcljjivswmdkqtbxixmvtrrblj, md5:15743cb3bbaa0665144bd8907ad024a4, filename:技术路线.png - ApiDealfile.cpp:478
+20250119 05:04:28.678480Z INFO  执行: select pv, shared_status from user_file_list where user = 'qhrrr' and md5 = '15743cb3bbaa0665144bd8907ad024a4' and file_name = '技术路线.png' - ApiDealfile.cpp:399
+20250119 05:04:28.679353Z INFO  row_num: 1 - DBPool.cpp:332
+20250119 05:04:28.679474Z INFO  执行: update user_file_list set pv = 2 where user = 'qhrrr' and md5 = '15743cb3bbaa0665144bd8907ad024a4' and file_name = '技术路线.png' - ApiDealfile.cpp:416
+20250119 05:04:28.688744Z INFO  str_json: {"code":0}
+ - ApiDealfile.cpp:69
+20250119 05:04:28.688830Z INFO  write complete - HttpConn.cpp:490
+20250119 05:39:32.148817Z INFO  url: /api/sharefiles?cmd=pvdesc - HttpConn.cpp:233
+20250119 05:39:32.148858Z INFO   post_data: {"count":2,"start":0} - ApiSharefiles.cpp:377
+20250119 05:39:32.148868Z INFO  cmd = pvdesc - ApiSharefiles.cpp:381
+20250119 05:39:32.149305Z INFO  sql_num: 4, redis_num: 4 - ApiSharefiles.cpp:244
+20250119 05:39:32.149808Z INFO  write complete - HttpConn.cpp:490
+20250119 05:39:33.698825Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 05:39:33.698865Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 05:39:33.698927Z INFO  user_name:qhrrr, token:qmgbbuqcljjivswmdkqtbxixmvtrrblj, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 05:39:33.699147Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 05:39:33.699288Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 05:39:33.699692Z ERROR mysql_real_query failed: Can't connect to MySQL server on '127.0.0.1:3306' (111), sql: %s
+select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - DBPool.cpp:321
+20250119 05:39:33.699718Z ERROR select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 操作失败 - ApiMyfiles.cpp:272
+20250119 05:39:33.699756Z ERROR getUserFileList failed - ApiMyfiles.cpp:350
+20250119 05:39:33.699900Z INFO  write complete - HttpConn.cpp:490
+20250119 05:39:40.281811Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 05:39:40.281834Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 05:39:40.281875Z INFO  user_name:qhrrr, token:qmgbbuqcljjivswmdkqtbxixmvtrrblj, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 05:39:40.282078Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 05:39:40.282208Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 05:39:40.282316Z ERROR mysql_real_query failed: Can't connect to MySQL server on '127.0.0.1:3306' (111), sql: %s
+select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - DBPool.cpp:321
+20250119 05:39:40.282328Z ERROR select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 操作失败 - ApiMyfiles.cpp:272
+20250119 05:39:40.282378Z ERROR getUserFileList failed - ApiMyfiles.cpp:350
+20250119 05:39:40.282433Z INFO  write complete - HttpConn.cpp:490
+20250119 05:39:46.603107Z INFO  url: /api/login - HttpConn.cpp:233
+20250119 05:39:46.603242Z INFO  into - HttpConn.cpp:401
+20250119 05:39:46.603729Z ERROR mysql_real_query failed: Can't connect to MySQL server on '127.0.0.1:3306' (111), sql: %s
+select password from user_info where user_name='qhrrr' - DBPool.cpp:321
+20250119 05:39:46.603773Z ERROR verifyUserPassword failed - ApiLogin.cpp:212
+20250119 05:39:46.603819Z INFO  into - HttpConn.cpp:496
+20250119 05:39:46.703886Z INFO  conn_uuid: 28, pConn: 0x56077DE26440 - HttpConn.cpp:516
+20250119 05:39:46.703919Z INFO  send: HTTP/1.1 200 OK
+Connection:close
+Content-Length:11
+Content-Type:application/json;charset=utf-8
+
+{"code":1}
+ - HttpConn.cpp:518
+20250119 05:39:46.704029Z INFO  write complete - HttpConn.cpp:490
+20250119 05:39:52.418640Z INFO  url: /api/login - HttpConn.cpp:233
+20250119 05:39:52.418760Z INFO  into - HttpConn.cpp:401
+20250119 05:39:52.418965Z ERROR mysql_real_query failed: Can't connect to MySQL server on '127.0.0.1:3306' (111), sql: %s
+select password from user_info where user_name='qhrrr' - DBPool.cpp:321
+20250119 05:39:52.418990Z ERROR verifyUserPassword failed - ApiLogin.cpp:212
+20250119 05:39:52.419030Z INFO  into - HttpConn.cpp:496
+20250119 05:39:52.518852Z INFO  conn_uuid: 29, pConn: 0x56077DE26440 - HttpConn.cpp:516
+20250119 05:39:52.518891Z INFO  send: HTTP/1.1 200 OK
+Connection:close
+Content-Length:11
+Content-Type:application/json;charset=utf-8
+
+{"code":1}
+ - HttpConn.cpp:518
+20250119 05:39:52.519009Z INFO  write complete - HttpConn.cpp:490
+20250119 05:40:08.494415Z INFO  url: /api/login - HttpConn.cpp:233
+20250119 05:40:08.494503Z INFO  into - HttpConn.cpp:401
+20250119 05:40:08.495162Z ERROR mysql_real_query failed: Can't connect to MySQL server on '127.0.0.1:3306' (111), sql: %s
+select password from user_info where user_name='qhrrr' - DBPool.cpp:321
+20250119 05:40:08.495185Z ERROR verifyUserPassword failed - ApiLogin.cpp:212
+20250119 05:40:08.495210Z INFO  into - HttpConn.cpp:496
+20250119 05:40:08.594587Z INFO  conn_uuid: 30, pConn: 0x56077DE26440 - HttpConn.cpp:516
+20250119 05:40:08.594617Z INFO  send: HTTP/1.1 200 OK
+Connection:close
+Content-Length:11
+Content-Type:application/json;charset=utf-8
+
+{"code":1}
+ - HttpConn.cpp:518
+20250119 05:40:08.594719Z INFO  write complete - HttpConn.cpp:490
+20250119 05:40:11.183912Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 05:40:11.183956Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 05:40:11.184017Z INFO  user_name:qhrrr, token:qmgbbuqcljjivswmdkqtbxixmvtrrblj, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 05:40:11.184313Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 05:40:11.184524Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 05:40:11.184766Z ERROR mysql_real_query failed: Can't connect to MySQL server on '127.0.0.1:3306' (111), sql: %s
+select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - DBPool.cpp:321
+20250119 05:40:11.184784Z ERROR select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 操作失败 - ApiMyfiles.cpp:272
+20250119 05:40:11.184814Z ERROR getUserFileList failed - ApiMyfiles.cpp:350
+20250119 05:40:11.184939Z INFO  write complete - HttpConn.cpp:490
+20250119 05:40:21.890196Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 05:40:21.890241Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 05:40:21.890322Z INFO  user_name:qhrrr, token:qmgbbuqcljjivswmdkqtbxixmvtrrblj, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 05:40:21.890644Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 05:40:21.890798Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 05:40:21.891048Z ERROR mysql_real_query failed: Can't connect to MySQL server on '127.0.0.1:3306' (111), sql: %s
+select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - DBPool.cpp:321
+20250119 05:40:21.891065Z ERROR select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 操作失败 - ApiMyfiles.cpp:272
+20250119 05:40:21.891094Z ERROR getUserFileList failed - ApiMyfiles.cpp:350
+20250119 05:40:21.891189Z INFO  write complete - HttpConn.cpp:490
+20250119 05:40:26.604007Z INFO  url: /api/login - HttpConn.cpp:233
+20250119 05:40:26.604114Z INFO  into - HttpConn.cpp:401
+20250119 05:40:26.604490Z ERROR mysql_real_query failed: Can't connect to MySQL server on '127.0.0.1:3306' (111), sql: %s
+select password from user_info where user_name='qhrrr' - DBPool.cpp:321
+20250119 05:40:26.604526Z ERROR verifyUserPassword failed - ApiLogin.cpp:212
+20250119 05:40:26.604565Z INFO  into - HttpConn.cpp:496
+20250119 05:40:26.604644Z INFO  conn_uuid: 33, pConn: 0x56077DE26440 - HttpConn.cpp:516
+20250119 05:40:26.604658Z INFO  send: HTTP/1.1 200 OK
+Connection:close
+Content-Length:11
+Content-Type:application/json;charset=utf-8
+
+{"code":1}
+ - HttpConn.cpp:518
+20250119 05:40:26.604720Z INFO  write complete - HttpConn.cpp:490
+20250119 07:30:18.134657Z INFO  db_host:127.0.0.1, db_port:3306, db_dbname:0voice_tuchuang, db_username:qhr, db_password:123456 - DBPool.cpp:635
+20250119 07:30:18.193843Z INFO  db_host:127.0.0.1, db_port:3306, db_dbname:0voice_tuchuang, db_username:qhr, db_password:123456 - DBPool.cpp:635
+20250119 07:30:18.220012Z INFO  row_num: 1 - DBPool.cpp:332
+20250119 07:30:18.220078Z INFO  count: 0 - ApiCommon.cpp:199
+20250119 07:30:18.226508Z INFO  server start listen on:For http://%0.0.0.0:8081 - main.cpp:165
+20250119 07:30:18.226560Z INFO  now enter the event loop... - main.cpp:168
+20250119 07:30:38.864841Z INFO  url: /api/reg - HttpConn.cpp:233
+20250119 07:30:38.868107Z INFO  row_num: 0 - DBPool.cpp:332
+20250119 07:30:38.868298Z INFO  执行: insert into user_info (`user_name`,`nick_name`,`password`,`phone`,`email`,`create_time`) values(?,?,?,?,?,?) - ApiRegister.cpp:129
+20250119 07:30:38.877990Z INFO  insert user 14 - ApiRegister.cpp:147
+20250119 07:30:38.878179Z INFO  szContent: HTTP/1.1 200 OK
+Connection:close
+Content-Length:11
+Content-Type:application/json;charset=utf-8
+
+{"code":0}
+ - HttpConn.cpp:381
+20250119 07:30:38.878335Z INFO  write complete - HttpConn.cpp:490
+20250119 07:30:43.010432Z INFO  url: /api/login - HttpConn.cpp:233
+20250119 07:30:43.010492Z INFO  into - HttpConn.cpp:401
+20250119 07:30:43.011678Z INFO  row_num: 1 - DBPool.cpp:332
+20250119 07:30:43.011719Z INFO  mysql-pwd: e10adc3949ba59abbe56e057f20f883e, user-pwd: e10adc3949ba59abbe56e057f20f883e - ApiLogin.cpp:95
+20250119 07:30:43.012116Z INFO  执行: select count(*) from user_file_list where user='qhrrr' - ApiCommon.cpp:127
+20250119 07:30:43.014157Z INFO  row_num: 1 - DBPool.cpp:332
+20250119 07:30:43.014230Z INFO  count: 0 - ApiCommon.cpp:133
+20250119 07:30:43.014550Z INFO  FILE_USER_COUNT: 0 - ApiLogin.cpp:168
+20250119 07:30:43.014589Z INFO  执行: select count(*) from share_picture_list where user='qhrrr' - ApiCommon.cpp:161
+20250119 07:30:43.017713Z INFO  row_num: 1 - DBPool.cpp:332
+20250119 07:30:43.017792Z INFO  count: 0 - ApiCommon.cpp:167
+20250119 07:30:43.018095Z INFO  SHARE_PIC_COUNT: 0 - ApiLogin.cpp:183
+20250119 07:30:43.018213Z INFO  into - HttpConn.cpp:496
+20250119 07:30:43.110785Z INFO  conn_uuid: 2, pConn: 0x5647EADF2440 - HttpConn.cpp:516
+20250119 07:30:43.110820Z INFO  send: HTTP/1.1 200 OK
+Connection:close
+Content-Length:54
+Content-Type:application/json;charset=utf-8
+
+{"code":0,"token":"nwlrbbmqbhcdarzowkkyhiddqscdxrjm"}
+ - HttpConn.cpp:518
+20250119 07:30:43.110933Z INFO  write complete - HttpConn.cpp:490
+20250119 07:30:43.189825Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 07:30:43.189877Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 07:30:43.189938Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 07:30:43.190185Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 07:30:43.190333Z INFO  执行: select count(*) from user_file_list where user='qhrrr' - ApiCommon.cpp:127
+20250119 07:30:43.191251Z INFO  row_num: 1 - DBPool.cpp:332
+20250119 07:30:43.191333Z INFO  count: 0 - ApiCommon.cpp:133
+20250119 07:30:43.191624Z WARN  getUserFilesCount = 0 - ApiMyfiles.cpp:203
+20250119 07:30:43.191719Z INFO  write complete - HttpConn.cpp:490
+20250119 07:30:45.545072Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 07:30:45.545093Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 07:30:45.545132Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 07:30:45.545317Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 07:30:45.545408Z INFO  执行: select count(*) from user_file_list where user='qhrrr' - ApiCommon.cpp:127
+20250119 07:30:45.546334Z INFO  row_num: 1 - DBPool.cpp:332
+20250119 07:30:45.546376Z INFO  count: 0 - ApiCommon.cpp:133
+20250119 07:30:45.546609Z WARN  getUserFilesCount = 0 - ApiMyfiles.cpp:203
+20250119 07:30:45.546701Z INFO  write complete - HttpConn.cpp:490
+20250119 07:30:50.838744Z INFO  url: /api/md5 - HttpConn.cpp:233
+20250119 07:30:50.838835Z ERROR filename null
+ - ApiMd5.cpp:53
+20250119 07:30:50.838845Z ERROR decodeMd5Json() err - ApiMd5.cpp:191
+20250119 07:30:50.838870Z INFO  json size:11 - HttpConn.cpp:444
+20250119 07:30:50.838933Z INFO  write complete - HttpConn.cpp:490
+20250119 07:30:50.904077Z INFO  url: /api/upload - HttpConn.cpp:233
+20250119 07:30:50.904147Z INFO  post_data: ------WebKitFormBoundaryva6lxgjllge2xfpA
+Content-Disposition: form-data; name="file_name"
+
+技术路线.png
+------WebKitFormBoundaryva6lxgjllge2xfpA
+Content-Disposition: form-data; name="file_content_type"
+
+image/png
+------WebKitFormBoundaryva6lxgjllge2xfpA
+Content-Disposition: form-data; name="file_path"
+
+/root/tmp/6/0000000026
+------WebKitFormBoundaryva6lxgjllge2xfpA
+Content-Disposition: form-data; name="file_md5"
+
+15743cb3bbaa0665144bd8907ad024a4
+------WebKitFormBoundaryva6lxgjllge2xfpA
+Content-Disposition: form-data; name="file_size"
+
+182136
+------WebKitFormBoundaryva6lxgjllge2xfpA
+Content-Disposition: form-data; name="user"
+
+qhrrr
+------WebKitFormBoundaryva6lxgjllge2xfpA--
+ - ApiUpload.cpp:297
+20250119 07:30:50.904172Z INFO  boundary: ------WebKitFormBoundaryva6lxgjllge2xfpA - ApiUpload.cpp:312
+20250119 07:30:50.904182Z INFO  file_name: 技术路线.png - ApiUpload.cpp:328
+20250119 07:30:50.904186Z INFO  file_content_type: image/png - ApiUpload.cpp:344
+20250119 07:30:50.904190Z INFO  file_path: /root/tmp/6/0000000026 - ApiUpload.cpp:360
+20250119 07:30:50.904193Z INFO  file_md5: 15743cb3bbaa0665144bd8907ad024a4 - ApiUpload.cpp:376
+20250119 07:30:50.904196Z INFO  file_size: 182136 - ApiUpload.cpp:392
+20250119 07:30:50.904200Z INFO  user: qhrrr - ApiUpload.cpp:409
+20250119 07:30:50.904295Z INFO  uploadFileToFastDfs, file_name:技术路线.png, new_file_path:/root/tmp/6/0000000026.png - ApiUpload.cpp:425
+20250119 07:30:51.369600Z INFO  fileid1: group1/M00/00/00/L3THs2eMqiuAZ0tCAALHeOwv0cU846.png
+ - ApiUpload.cpp:77
+20250119 07:30:51.369667Z INFO  fileid2: group1/M00/00/00/L3THs2eMqiuAZ0tCAALHeOwv0cU846.png - ApiUpload.cpp:87
+20250119 07:30:51.370242Z INFO  unlink: /root/tmp/6/0000000026.png - ApiUpload.cpp:433
+20250119 07:30:51.370445Z INFO  getFullurlByFileid, fileid: group1/M00/00/00/L3THs2eMqiuAZ0tCAALHeOwv0cU846.png - ApiUpload.cpp:442
+20250119 07:30:51.376687Z INFO  fdfs_file_stat_buf: GET FROM SERVER: false
+
+file type: normal
+source storage id: 0
+source ip address: 47.116.199.179
+file create timestamp: 2025-01-19 15:30:51
+file size: 182136
+file crc32: -332410427 (0xec2fd1c5)
+ - ApiUpload.cpp:165
+20250119 07:30:51.376769Z INFO  host_name:47.116.199.179, fdfs_file_host_name: 47.116.199.179 - ApiUpload.cpp:175
+20250119 07:30:51.376778Z INFO  fdfs_file_url:http://47.116.199.179:80/group1/M00/00/00/L3THs2eMqiuAZ0tCAALHeOwv0cU846.png - ApiUpload.cpp:186
+20250119 07:30:51.376783Z INFO  storeFileinfo, url: http://47.116.199.179:80/group1/M00/00/00/L3THs2eMqiuAZ0tCAALHeOwv0cU846.png - ApiUpload.cpp:451
+20250119 07:30:51.376793Z INFO  执行: insert into file_info (md5, file_id, url, size, type, count) values ('15743cb3bbaa0665144bd8907ad024a4', 'group1/M00/00/00/L3THs2eMqiuAZ0tCAALHeOwv0cU846.png', 'http://47.116.199.179:80/group1/M00/00/00/L3THs2eMqiuAZ0tCAALHeOwv0cU846.png', '182136', 'png', 1) - ApiUpload.cpp:216
+20250119 07:30:51.384181Z INFO  执行: insert into user_file_list(user, md5, create_time, file_name, shared_status, pv) values ('qhrrr', '15743cb3bbaa0665144bd8907ad024a4', '2025-01-19 15:30:51', '技术路线.png', 0, 0) - ApiUpload.cpp:239
+20250119 07:30:51.390043Z INFO  qhrrr - 0 - ApiCommon.cpp:93
+20250119 07:30:51.390758Z INFO  write complete - HttpConn.cpp:490
+20250119 07:30:52.562873Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 07:30:52.562923Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 07:30:52.562997Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 07:30:52.563302Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 07:30:52.563521Z INFO  执行: select count(*) from user_file_list where user='qhrrr' - ApiCommon.cpp:127
+20250119 07:30:52.564693Z INFO  row_num: 1 - DBPool.cpp:332
+20250119 07:30:52.564763Z INFO  count: 1 - ApiCommon.cpp:133
+20250119 07:30:52.565186Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 07:30:52.567113Z INFO  row_num: 1 - DBPool.cpp:332
+20250119 07:30:52.567402Z INFO  write complete - HttpConn.cpp:490
+20250119 07:30:55.735427Z INFO  url: /api/md5 - HttpConn.cpp:233
+20250119 07:30:55.735605Z ERROR filename null
+ - ApiMd5.cpp:53
+20250119 07:30:55.735622Z ERROR decodeMd5Json() err - ApiMd5.cpp:191
+20250119 07:30:55.735645Z INFO  json size:11 - HttpConn.cpp:444
+20250119 07:30:55.735693Z INFO  write complete - HttpConn.cpp:490
+20250119 07:30:55.770529Z INFO  url: /api/upload - HttpConn.cpp:233
+20250119 07:30:55.770591Z INFO  post_data: ------WebKitFormBoundaryf37xCB01sZwQilHn
+Content-Disposition: form-data; name="file_name"
+
+技术路线英文版.png
+------WebKitFormBoundaryf37xCB01sZwQilHn
+Content-Disposition: form-data; name="file_content_type"
+
+image/png
+------WebKitFormBoundaryf37xCB01sZwQilHn
+Content-Disposition: form-data; name="file_path"
+
+/root/tmp/7/0000000027
+------WebKitFormBoundaryf37xCB01sZwQilHn
+Content-Disposition: form-data; name="file_md5"
+
+79c0ef2b39eb30657c98a2eef86579e9
+------WebKitFormBoundaryf37xCB01sZwQilHn
+Content-Disposition: form-data; name="file_size"
+
+182339
+------WebKitFormBoundaryf37xCB01sZwQilHn
+Content-Disposition: form-data; name="user"
+
+qhrrr
+------WebKitFormBoundaryf37xCB01sZwQilHn--
+ - ApiUpload.cpp:297
+20250119 07:30:55.770608Z INFO  boundary: ------WebKitFormBoundaryf37xCB01sZwQilHn - ApiUpload.cpp:312
+20250119 07:30:55.770612Z INFO  file_name: 技术路线英文版.png - ApiUpload.cpp:328
+20250119 07:30:55.770616Z INFO  file_content_type: image/png - ApiUpload.cpp:344
+20250119 07:30:55.770619Z INFO  file_path: /root/tmp/7/0000000027 - ApiUpload.cpp:360
+20250119 07:30:55.770623Z INFO  file_md5: 79c0ef2b39eb30657c98a2eef86579e9 - ApiUpload.cpp:376
+20250119 07:30:55.770626Z INFO  file_size: 182339 - ApiUpload.cpp:392
+20250119 07:30:55.770630Z INFO  user: qhrrr - ApiUpload.cpp:409
+20250119 07:30:55.770696Z INFO  uploadFileToFastDfs, file_name:技术路线英文版.png, new_file_path:/root/tmp/7/0000000027.png - ApiUpload.cpp:425
+20250119 07:30:55.994925Z INFO  fileid1: group1/M00/00/00/L3THs2eMqi-AcgWxAALIQ7IBmW8719.png
+ - ApiUpload.cpp:77
+20250119 07:30:55.994993Z INFO  fileid2: group1/M00/00/00/L3THs2eMqi-AcgWxAALIQ7IBmW8719.png - ApiUpload.cpp:87
+20250119 07:30:55.995217Z INFO  unlink: /root/tmp/7/0000000027.png - ApiUpload.cpp:433
+20250119 07:30:55.995374Z INFO  getFullurlByFileid, fileid: group1/M00/00/00/L3THs2eMqi-AcgWxAALIQ7IBmW8719.png - ApiUpload.cpp:442
+20250119 07:30:55.998422Z INFO  fdfs_file_stat_buf: GET FROM SERVER: false
+
+file type: normal
+source storage id: 0
+source ip address: 47.116.199.179
+file create timestamp: 2025-01-19 15:30:55
+file size: 182339
+file crc32: -1308518033 (0xb201996f)
+ - ApiUpload.cpp:165
+20250119 07:30:55.998483Z INFO  host_name:47.116.199.179, fdfs_file_host_name: 47.116.199.179 - ApiUpload.cpp:175
+20250119 07:30:55.998497Z INFO  fdfs_file_url:http://47.116.199.179:80/group1/M00/00/00/L3THs2eMqi-AcgWxAALIQ7IBmW8719.png - ApiUpload.cpp:186
+20250119 07:30:55.998507Z INFO  storeFileinfo, url: http://47.116.199.179:80/group1/M00/00/00/L3THs2eMqi-AcgWxAALIQ7IBmW8719.png - ApiUpload.cpp:451
+20250119 07:30:55.998514Z INFO  执行: insert into file_info (md5, file_id, url, size, type, count) values ('79c0ef2b39eb30657c98a2eef86579e9', 'group1/M00/00/00/L3THs2eMqi-AcgWxAALIQ7IBmW8719.png', 'http://47.116.199.179:80/group1/M00/00/00/L3THs2eMqi-AcgWxAALIQ7IBmW8719.png', '182339', 'png', 1) - ApiUpload.cpp:216
+20250119 07:30:56.004835Z INFO  执行: insert into user_file_list(user, md5, create_time, file_name, shared_status, pv) values ('qhrrr', '79c0ef2b39eb30657c98a2eef86579e9', '2025-01-19 15:30:56', '技术路线英文版.png', 0, 0) - ApiUpload.cpp:239
+20250119 07:30:56.010285Z INFO  qhrrr - 0 - ApiCommon.cpp:93
+20250119 07:30:56.010390Z INFO  write complete - HttpConn.cpp:490
+20250119 07:30:56.850710Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 07:30:56.850776Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 07:30:56.850837Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 07:30:56.851246Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 07:30:56.851475Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 07:30:56.852717Z INFO  row_num: 2 - DBPool.cpp:332
+20250119 07:30:56.853038Z INFO  write complete - HttpConn.cpp:490
+20250119 07:30:59.184857Z INFO  url: /api/md5 - HttpConn.cpp:233
+20250119 07:30:59.184962Z ERROR filename null
+ - ApiMd5.cpp:53
+20250119 07:30:59.184972Z ERROR decodeMd5Json() err - ApiMd5.cpp:191
+20250119 07:30:59.184996Z INFO  json size:11 - HttpConn.cpp:444
+20250119 07:30:59.185071Z INFO  write complete - HttpConn.cpp:490
+20250119 07:30:59.200551Z INFO  url: /api/upload - HttpConn.cpp:233
+20250119 07:30:59.200625Z INFO  post_data: ------WebKitFormBoundaryFC7yst3exOXOTwQZ
+Content-Disposition: form-data; name="file_name"
+
+columns.svg
+------WebKitFormBoundaryFC7yst3exOXOTwQZ
+Content-Disposition: form-data; name="file_content_type"
+
+image/svg+xml
+------WebKitFormBoundaryFC7yst3exOXOTwQZ
+Content-Disposition: form-data; name="file_path"
+
+/root/tmp/8/0000000028
+------WebKitFormBoundaryFC7yst3exOXOTwQZ
+Content-Disposition: form-data; name="file_md5"
+
+414efe76af464f2ff6e6573dc2d46f2c
+------WebKitFormBoundaryFC7yst3exOXOTwQZ
+Content-Disposition: form-data; name="file_size"
+
+271
+------WebKitFormBoundaryFC7yst3exOXOTwQZ
+Content-Disposition: form-data; name="user"
+
+qhrrr
+------WebKitFormBoundaryFC7yst3exOXOTwQZ--
+ - ApiUpload.cpp:297
+20250119 07:30:59.200646Z INFO  boundary: ------WebKitFormBoundaryFC7yst3exOXOTwQZ - ApiUpload.cpp:312
+20250119 07:30:59.200652Z INFO  file_name: columns.svg - ApiUpload.cpp:328
+20250119 07:30:59.200655Z INFO  file_content_type: image/svg+xml - ApiUpload.cpp:344
+20250119 07:30:59.200659Z INFO  file_path: /root/tmp/8/0000000028 - ApiUpload.cpp:360
+20250119 07:30:59.200663Z INFO  file_md5: 414efe76af464f2ff6e6573dc2d46f2c - ApiUpload.cpp:376
+20250119 07:30:59.200666Z INFO  file_size: 271 - ApiUpload.cpp:392
+20250119 07:30:59.200670Z INFO  user: qhrrr - ApiUpload.cpp:409
+20250119 07:30:59.200748Z INFO  uploadFileToFastDfs, file_name:columns.svg, new_file_path:/root/tmp/8/0000000028.svg - ApiUpload.cpp:425
+20250119 07:30:59.206610Z INFO  fileid1: group1/M00/00/00/L3THs2eMqjOAfvyxAAABD6j5jys193.svg
+ - ApiUpload.cpp:77
+20250119 07:30:59.206734Z INFO  fileid2: group1/M00/00/00/L3THs2eMqjOAfvyxAAABD6j5jys193.svg - ApiUpload.cpp:87
+20250119 07:30:59.207276Z INFO  unlink: /root/tmp/8/0000000028.svg - ApiUpload.cpp:433
+20250119 07:30:59.207522Z INFO  getFullurlByFileid, fileid: group1/M00/00/00/L3THs2eMqjOAfvyxAAABD6j5jys193.svg - ApiUpload.cpp:442
+20250119 07:30:59.211143Z INFO  fdfs_file_stat_buf: GET FROM SERVER: false
+
+file type: normal
+source storage id: 0
+source ip address: 47.116.199.179
+file create timestamp: 2025-01-19 15:30:59
+file size: 271
+file crc32: -1460039893 (0xa8f98f2b)
+ - ApiUpload.cpp:165
+20250119 07:30:59.211183Z INFO  host_name:47.116.199.179, fdfs_file_host_name: 47.116.199.179 - ApiUpload.cpp:175
+20250119 07:30:59.211196Z INFO  fdfs_file_url:http://47.116.199.179:80/group1/M00/00/00/L3THs2eMqjOAfvyxAAABD6j5jys193.svg - ApiUpload.cpp:186
+20250119 07:30:59.211203Z INFO  storeFileinfo, url: http://47.116.199.179:80/group1/M00/00/00/L3THs2eMqjOAfvyxAAABD6j5jys193.svg - ApiUpload.cpp:451
+20250119 07:30:59.211212Z INFO  执行: insert into file_info (md5, file_id, url, size, type, count) values ('414efe76af464f2ff6e6573dc2d46f2c', 'group1/M00/00/00/L3THs2eMqjOAfvyxAAABD6j5jys193.svg', 'http://47.116.199.179:80/group1/M00/00/00/L3THs2eMqjOAfvyxAAABD6j5jys193.svg', '271', 'svg', 1) - ApiUpload.cpp:216
+20250119 07:30:59.216844Z INFO  执行: insert into user_file_list(user, md5, create_time, file_name, shared_status, pv) values ('qhrrr', '414efe76af464f2ff6e6573dc2d46f2c', '2025-01-19 15:30:59', 'columns.svg', 0, 0) - ApiUpload.cpp:239
+20250119 07:30:59.222567Z INFO  qhrrr - 0 - ApiCommon.cpp:93
+20250119 07:30:59.222679Z INFO  write complete - HttpConn.cpp:490
+20250119 07:31:00.224223Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 07:31:00.224271Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 07:31:00.224346Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 07:31:00.224621Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 07:31:00.224775Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 07:31:00.226134Z INFO  row_num: 3 - DBPool.cpp:332
+20250119 07:31:00.226390Z INFO  write complete - HttpConn.cpp:490
+20250119 07:31:02.501930Z INFO  url: /api/md5 - HttpConn.cpp:233
+20250119 07:31:02.502229Z ERROR filename null
+ - ApiMd5.cpp:53
+20250119 07:31:02.502291Z ERROR decodeMd5Json() err - ApiMd5.cpp:191
+20250119 07:31:02.502319Z INFO  json size:11 - HttpConn.cpp:444
+20250119 07:31:02.502421Z INFO  write complete - HttpConn.cpp:490
+20250119 07:31:02.519338Z INFO  url: /api/upload - HttpConn.cpp:233
+20250119 07:31:02.519392Z INFO  post_data: ------WebKitFormBoundarydxSkwYbz0ILkIq97
+Content-Disposition: form-data; name="file_name"
+
+command.svg
+------WebKitFormBoundarydxSkwYbz0ILkIq97
+Content-Disposition: form-data; name="file_content_type"
+
+image/svg+xml
+------WebKitFormBoundarydxSkwYbz0ILkIq97
+Content-Disposition: form-data; name="file_path"
+
+/root/tmp/9/0000000029
+------WebKitFormBoundarydxSkwYbz0ILkIq97
+Content-Disposition: form-data; name="file_md5"
+
+f02c49df2989d9cad2616259f42f5a48
+------WebKitFormBoundarydxSkwYbz0ILkIq97
+Content-Disposition: form-data; name="file_size"
+
+421
+------WebKitFormBoundarydxSkwYbz0ILkIq97
+Content-Disposition: form-data; name="user"
+
+qhrrr
+------WebKitFormBoundarydxSkwYbz0ILkIq97--
+ - ApiUpload.cpp:297
+20250119 07:31:02.519414Z INFO  boundary: ------WebKitFormBoundarydxSkwYbz0ILkIq97 - ApiUpload.cpp:312
+20250119 07:31:02.519419Z INFO  file_name: command.svg - ApiUpload.cpp:328
+20250119 07:31:02.519423Z INFO  file_content_type: image/svg+xml - ApiUpload.cpp:344
+20250119 07:31:02.519426Z INFO  file_path: /root/tmp/9/0000000029 - ApiUpload.cpp:360
+20250119 07:31:02.519429Z INFO  file_md5: f02c49df2989d9cad2616259f42f5a48 - ApiUpload.cpp:376
+20250119 07:31:02.519433Z INFO  file_size: 421 - ApiUpload.cpp:392
+20250119 07:31:02.519437Z INFO  user: qhrrr - ApiUpload.cpp:409
+20250119 07:31:02.519546Z INFO  uploadFileToFastDfs, file_name:command.svg, new_file_path:/root/tmp/9/0000000029.svg - ApiUpload.cpp:425
+20250119 07:31:02.524706Z INFO  fileid1: group1/M00/00/00/L3THs2eMqjaAbt-yAAABpSqTBZI467.svg
+ - ApiUpload.cpp:77
+20250119 07:31:02.524794Z INFO  fileid2: group1/M00/00/00/L3THs2eMqjaAbt-yAAABpSqTBZI467.svg - ApiUpload.cpp:87
+20250119 07:31:02.524984Z INFO  unlink: /root/tmp/9/0000000029.svg - ApiUpload.cpp:433
+20250119 07:31:02.525087Z INFO  getFullurlByFileid, fileid: group1/M00/00/00/L3THs2eMqjaAbt-yAAABpSqTBZI467.svg - ApiUpload.cpp:442
+20250119 07:31:02.529148Z INFO  fdfs_file_stat_buf: GET FROM SERVER: false
+
+file type: normal
+source storage id: 0
+source ip address: 47.116.199.179
+file create timestamp: 2025-01-19 15:31:02
+file size: 421
+file crc32: 714278290 (0x2a930592)
+ - ApiUpload.cpp:165
+20250119 07:31:02.529295Z INFO  host_name:47.116.199.179, fdfs_file_host_name: 47.116.199.179 - ApiUpload.cpp:175
+20250119 07:31:02.529311Z INFO  fdfs_file_url:http://47.116.199.179:80/group1/M00/00/00/L3THs2eMqjaAbt-yAAABpSqTBZI467.svg - ApiUpload.cpp:186
+20250119 07:31:02.529321Z INFO  storeFileinfo, url: http://47.116.199.179:80/group1/M00/00/00/L3THs2eMqjaAbt-yAAABpSqTBZI467.svg - ApiUpload.cpp:451
+20250119 07:31:02.529335Z INFO  执行: insert into file_info (md5, file_id, url, size, type, count) values ('f02c49df2989d9cad2616259f42f5a48', 'group1/M00/00/00/L3THs2eMqjaAbt-yAAABpSqTBZI467.svg', 'http://47.116.199.179:80/group1/M00/00/00/L3THs2eMqjaAbt-yAAABpSqTBZI467.svg', '421', 'svg', 1) - ApiUpload.cpp:216
+20250119 07:31:02.534875Z INFO  执行: insert into user_file_list(user, md5, create_time, file_name, shared_status, pv) values ('qhrrr', 'f02c49df2989d9cad2616259f42f5a48', '2025-01-19 15:31:02', 'command.svg', 0, 0) - ApiUpload.cpp:239
+20250119 07:31:02.540051Z INFO  qhrrr - 0 - ApiCommon.cpp:93
+20250119 07:31:02.540150Z INFO  write complete - HttpConn.cpp:490
+20250119 07:31:04.305691Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 07:31:04.305734Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 07:31:04.305822Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 07:31:04.306298Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 07:31:04.306585Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 07:31:04.307729Z INFO  row_num: 4 - DBPool.cpp:332
+20250119 07:31:04.308316Z INFO  write complete - HttpConn.cpp:490
+20250119 07:31:11.294300Z INFO  url: /api/md5 - HttpConn.cpp:233
+20250119 07:31:11.294399Z ERROR filename null
+ - ApiMd5.cpp:53
+20250119 07:31:11.294410Z ERROR decodeMd5Json() err - ApiMd5.cpp:191
+20250119 07:31:11.294436Z INFO  json size:11 - HttpConn.cpp:444
+20250119 07:31:11.294539Z INFO  write complete - HttpConn.cpp:490
+20250119 07:31:11.310150Z INFO  url: /api/upload - HttpConn.cpp:233
+20250119 07:31:11.310216Z INFO  post_data: ------WebKitFormBoundaryWNB3G8lgtJSPb4Xb
+Content-Disposition: form-data; name="file_name"
+
+camera-video.svg
+------WebKitFormBoundaryWNB3G8lgtJSPb4Xb
+Content-Disposition: form-data; name="file_content_type"
+
+image/svg+xml
+------WebKitFormBoundaryWNB3G8lgtJSPb4Xb
+Content-Disposition: form-data; name="file_path"
+
+/root/tmp/0/0000000030
+------WebKitFormBoundaryWNB3G8lgtJSPb4Xb
+Content-Disposition: form-data; name="file_md5"
+
+45597c6bf4f8e87e8e944cf712286f3d
+------WebKitFormBoundaryWNB3G8lgtJSPb4Xb
+Content-Disposition: form-data; name="file_size"
+
+427
+------WebKitFormBoundaryWNB3G8lgtJSPb4Xb
+Content-Disposition: form-data; name="user"
+
+qhrrr
+------WebKitFormBoundaryWNB3G8lgtJSPb4Xb--
+ - ApiUpload.cpp:297
+20250119 07:31:11.310238Z INFO  boundary: ------WebKitFormBoundaryWNB3G8lgtJSPb4Xb - ApiUpload.cpp:312
+20250119 07:31:11.310242Z INFO  file_name: camera-video.svg - ApiUpload.cpp:328
+20250119 07:31:11.310247Z INFO  file_content_type: image/svg+xml - ApiUpload.cpp:344
+20250119 07:31:11.310250Z INFO  file_path: /root/tmp/0/0000000030 - ApiUpload.cpp:360
+20250119 07:31:11.310254Z INFO  file_md5: 45597c6bf4f8e87e8e944cf712286f3d - ApiUpload.cpp:376
+20250119 07:31:11.310258Z INFO  file_size: 427 - ApiUpload.cpp:392
+20250119 07:31:11.310261Z INFO  user: qhrrr - ApiUpload.cpp:409
+20250119 07:31:11.310339Z INFO  uploadFileToFastDfs, file_name:camera-video.svg, new_file_path:/root/tmp/0/0000000030.svg - ApiUpload.cpp:425
+20250119 07:31:11.316339Z INFO  fileid1: group1/M00/00/00/L3THs2eMqj-Aa7KzAAABqxz94nQ023.svg
+ - ApiUpload.cpp:77
+20250119 07:31:11.316419Z INFO  fileid2: group1/M00/00/00/L3THs2eMqj-Aa7KzAAABqxz94nQ023.svg - ApiUpload.cpp:87
+20250119 07:31:11.317168Z INFO  unlink: /root/tmp/0/0000000030.svg - ApiUpload.cpp:433
+20250119 07:31:11.317358Z INFO  getFullurlByFileid, fileid: group1/M00/00/00/L3THs2eMqj-Aa7KzAAABqxz94nQ023.svg - ApiUpload.cpp:442
+20250119 07:31:11.321323Z INFO  fdfs_file_stat_buf: GET FROM SERVER: false
+
+file type: normal
+source storage id: 0
+source ip address: 47.116.199.179
+file create timestamp: 2025-01-19 15:31:11
+file size: 427
+file crc32: 486400628 (0x1cfde274)
+ - ApiUpload.cpp:165
+20250119 07:31:11.321367Z INFO  host_name:47.116.199.179, fdfs_file_host_name: 47.116.199.179 - ApiUpload.cpp:175
+20250119 07:31:11.321379Z INFO  fdfs_file_url:http://47.116.199.179:80/group1/M00/00/00/L3THs2eMqj-Aa7KzAAABqxz94nQ023.svg - ApiUpload.cpp:186
+20250119 07:31:11.321386Z INFO  storeFileinfo, url: http://47.116.199.179:80/group1/M00/00/00/L3THs2eMqj-Aa7KzAAABqxz94nQ023.svg - ApiUpload.cpp:451
+20250119 07:31:11.321394Z INFO  执行: insert into file_info (md5, file_id, url, size, type, count) values ('45597c6bf4f8e87e8e944cf712286f3d', 'group1/M00/00/00/L3THs2eMqj-Aa7KzAAABqxz94nQ023.svg', 'http://47.116.199.179:80/group1/M00/00/00/L3THs2eMqj-Aa7KzAAABqxz94nQ023.svg', '427', 'svg', 1) - ApiUpload.cpp:216
+20250119 07:31:11.327324Z INFO  执行: insert into user_file_list(user, md5, create_time, file_name, shared_status, pv) values ('qhrrr', '45597c6bf4f8e87e8e944cf712286f3d', '2025-01-19 15:31:11', 'camera-video.svg', 0, 0) - ApiUpload.cpp:239
+20250119 07:31:11.332337Z INFO  qhrrr - 0 - ApiCommon.cpp:93
+20250119 07:31:11.332428Z INFO  write complete - HttpConn.cpp:490
+20250119 07:31:12.302350Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 07:31:12.302429Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 07:31:12.302541Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 07:31:12.302912Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 07:31:12.303176Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 07:31:12.304242Z INFO  row_num: 5 - DBPool.cpp:332
+20250119 07:31:12.304633Z INFO  write complete - HttpConn.cpp:490
+20250119 07:31:14.718165Z INFO  url: /api/md5 - HttpConn.cpp:233
+20250119 07:31:14.718258Z ERROR filename null
+ - ApiMd5.cpp:53
+20250119 07:31:14.718269Z ERROR decodeMd5Json() err - ApiMd5.cpp:191
+20250119 07:31:14.718291Z INFO  json size:11 - HttpConn.cpp:444
+20250119 07:31:14.718358Z INFO  write complete - HttpConn.cpp:490
+20250119 07:31:14.735361Z INFO  url: /api/upload - HttpConn.cpp:233
+20250119 07:31:14.735428Z INFO  post_data: ------WebKitFormBoundaryqAfv5DABf7wZ9fDv
+Content-Disposition: form-data; name="file_name"
+
+command.svg
+------WebKitFormBoundaryqAfv5DABf7wZ9fDv
+Content-Disposition: form-data; name="file_content_type"
+
+image/svg+xml
+------WebKitFormBoundaryqAfv5DABf7wZ9fDv
+Content-Disposition: form-data; name="file_path"
+
+/root/tmp/1/0000000031
+------WebKitFormBoundaryqAfv5DABf7wZ9fDv
+Content-Disposition: form-data; name="file_md5"
+
+f02c49df2989d9cad2616259f42f5a48
+------WebKitFormBoundaryqAfv5DABf7wZ9fDv
+Content-Disposition: form-data; name="file_size"
+
+421
+------WebKitFormBoundaryqAfv5DABf7wZ9fDv
+Content-Disposition: form-data; name="user"
+
+qhrrr
+------WebKitFormBoundaryqAfv5DABf7wZ9fDv--
+ - ApiUpload.cpp:297
+20250119 07:31:14.735480Z INFO  boundary: ------WebKitFormBoundaryqAfv5DABf7wZ9fDv - ApiUpload.cpp:312
+20250119 07:31:14.735485Z INFO  file_name: command.svg - ApiUpload.cpp:328
+20250119 07:31:14.735488Z INFO  file_content_type: image/svg+xml - ApiUpload.cpp:344
+20250119 07:31:14.735491Z INFO  file_path: /root/tmp/1/0000000031 - ApiUpload.cpp:360
+20250119 07:31:14.735495Z INFO  file_md5: f02c49df2989d9cad2616259f42f5a48 - ApiUpload.cpp:376
+20250119 07:31:14.735498Z INFO  file_size: 421 - ApiUpload.cpp:392
+20250119 07:31:14.735502Z INFO  user: qhrrr - ApiUpload.cpp:409
+20250119 07:31:14.735585Z INFO  uploadFileToFastDfs, file_name:command.svg, new_file_path:/root/tmp/1/0000000031.svg - ApiUpload.cpp:425
+20250119 07:31:14.741017Z INFO  fileid1: group1/M00/00/00/L3THs2eMqkKAbDLcAAABpSqTBZI695.svg
+ - ApiUpload.cpp:77
+20250119 07:31:14.741095Z INFO  fileid2: group1/M00/00/00/L3THs2eMqkKAbDLcAAABpSqTBZI695.svg - ApiUpload.cpp:87
+20250119 07:31:14.741517Z INFO  unlink: /root/tmp/1/0000000031.svg - ApiUpload.cpp:433
+20250119 07:31:14.741700Z INFO  getFullurlByFileid, fileid: group1/M00/00/00/L3THs2eMqkKAbDLcAAABpSqTBZI695.svg - ApiUpload.cpp:442
+20250119 07:31:14.745387Z INFO  fdfs_file_stat_buf: GET FROM SERVER: false
+
+file type: normal
+source storage id: 0
+source ip address: 47.116.199.179
+file create timestamp: 2025-01-19 15:31:14
+file size: 421
+file crc32: 714278290 (0x2a930592)
+ - ApiUpload.cpp:165
+20250119 07:31:14.745428Z INFO  host_name:47.116.199.179, fdfs_file_host_name: 47.116.199.179 - ApiUpload.cpp:175
+20250119 07:31:14.745442Z INFO  fdfs_file_url:http://47.116.199.179:80/group1/M00/00/00/L3THs2eMqkKAbDLcAAABpSqTBZI695.svg - ApiUpload.cpp:186
+20250119 07:31:14.745465Z INFO  storeFileinfo, url: http://47.116.199.179:80/group1/M00/00/00/L3THs2eMqkKAbDLcAAABpSqTBZI695.svg - ApiUpload.cpp:451
+20250119 07:31:14.745477Z INFO  执行: insert into file_info (md5, file_id, url, size, type, count) values ('f02c49df2989d9cad2616259f42f5a48', 'group1/M00/00/00/L3THs2eMqkKAbDLcAAABpSqTBZI695.svg', 'http://47.116.199.179:80/group1/M00/00/00/L3THs2eMqkKAbDLcAAABpSqTBZI695.svg', '421', 'svg', 1) - ApiUpload.cpp:216
+20250119 07:31:14.749839Z ERROR mysql_real_query failed: Duplicate entry 'f02c49df2989d9cad2616259f42f5a48' for key 'file_info.uq_md5', sql: start transaction - DBPool.cpp:282
+20250119 07:31:14.749876Z ERROR insert into file_info (md5, file_id, url, size, type, count) values ('f02c49df2989d9cad2616259f42f5a48', 'group1/M00/00/00/L3THs2eMqkKAbDLcAAABpSqTBZI695.svg', 'http://47.116.199.179:80/group1/M00/00/00/L3THs2eMqkKAbDLcAAABpSqTBZI695.svg', '421', 'svg', 1) 操作失败 - ApiUpload.cpp:219
+20250119 07:31:14.749887Z ERROR storeFileinfo failed  - ApiUpload.cpp:455
+20250119 07:31:14.749972Z INFO  write complete - HttpConn.cpp:490
+20250119 07:31:15.732857Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 07:31:15.732916Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 07:31:15.732992Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 07:31:15.733252Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 07:31:15.733430Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 07:31:15.734611Z INFO  row_num: 5 - DBPool.cpp:332
+20250119 07:31:15.734932Z INFO  write complete - HttpConn.cpp:490
+20250119 07:31:19.651186Z INFO  url: /api/md5 - HttpConn.cpp:233
+20250119 07:31:19.651395Z ERROR filename null
+ - ApiMd5.cpp:53
+20250119 07:31:19.651419Z ERROR decodeMd5Json() err - ApiMd5.cpp:191
+20250119 07:31:19.651445Z INFO  json size:11 - HttpConn.cpp:444
+20250119 07:31:19.651575Z INFO  write complete - HttpConn.cpp:490
+20250119 07:31:19.667652Z INFO  url: /api/upload - HttpConn.cpp:233
+20250119 07:31:19.667730Z INFO  post_data: ------WebKitFormBoundarybgaXGoBeL8M1dETb
+Content-Disposition: form-data; name="file_name"
+
+lightning-charge.svg
+------WebKitFormBoundarybgaXGoBeL8M1dETb
+Content-Disposition: form-data; name="file_content_type"
+
+image/svg+xml
+------WebKitFormBoundarybgaXGoBeL8M1dETb
+Content-Disposition: form-data; name="file_path"
+
+/root/tmp/2/0000000032
+------WebKitFormBoundarybgaXGoBeL8M1dETb
+Content-Disposition: form-data; name="file_md5"
+
+2b297579fed0ab3f89fe62d2367492d1
+------WebKitFormBoundarybgaXGoBeL8M1dETb
+Content-Disposition: form-data; name="file_size"
+
+394
+------WebKitFormBoundarybgaXGoBeL8M1dETb
+Content-Disposition: form-data; name="user"
+
+qhrrr
+------WebKitFormBoundarybgaXGoBeL8M1dETb--
+ - ApiUpload.cpp:297
+20250119 07:31:19.667759Z INFO  boundary: ------WebKitFormBoundarybgaXGoBeL8M1dETb - ApiUpload.cpp:312
+20250119 07:31:19.667766Z INFO  file_name: lightning-charge.svg - ApiUpload.cpp:328
+20250119 07:31:19.667771Z INFO  file_content_type: image/svg+xml - ApiUpload.cpp:344
+20250119 07:31:19.667777Z INFO  file_path: /root/tmp/2/0000000032 - ApiUpload.cpp:360
+20250119 07:31:19.667783Z INFO  file_md5: 2b297579fed0ab3f89fe62d2367492d1 - ApiUpload.cpp:376
+20250119 07:31:19.667788Z INFO  file_size: 394 - ApiUpload.cpp:392
+20250119 07:31:19.667794Z INFO  user: qhrrr - ApiUpload.cpp:409
+20250119 07:31:19.667922Z INFO  uploadFileToFastDfs, file_name:lightning-charge.svg, new_file_path:/root/tmp/2/0000000032.svg - ApiUpload.cpp:425
+20250119 07:31:19.674544Z INFO  fileid1: group1/M00/00/00/L3THs2eMqkeAOHnNAAABirqYpHE371.svg
+ - ApiUpload.cpp:77
+20250119 07:31:19.674628Z INFO  fileid2: group1/M00/00/00/L3THs2eMqkeAOHnNAAABirqYpHE371.svg - ApiUpload.cpp:87
+20250119 07:31:19.675536Z INFO  unlink: /root/tmp/2/0000000032.svg - ApiUpload.cpp:433
+20250119 07:31:19.675638Z INFO  getFullurlByFileid, fileid: group1/M00/00/00/L3THs2eMqkeAOHnNAAABirqYpHE371.svg - ApiUpload.cpp:442
+20250119 07:31:19.678982Z INFO  fdfs_file_stat_buf: GET FROM SERVER: false
+
+file type: normal
+source storage id: 0
+source ip address: 47.116.199.179
+file create timestamp: 2025-01-19 15:31:19
+file size: 394
+file crc32: -1164401551 (0xba98a471)
+ - ApiUpload.cpp:165
+20250119 07:31:19.679036Z INFO  host_name:47.116.199.179, fdfs_file_host_name: 47.116.199.179 - ApiUpload.cpp:175
+20250119 07:31:19.679050Z INFO  fdfs_file_url:http://47.116.199.179:80/group1/M00/00/00/L3THs2eMqkeAOHnNAAABirqYpHE371.svg - ApiUpload.cpp:186
+20250119 07:31:19.679057Z INFO  storeFileinfo, url: http://47.116.199.179:80/group1/M00/00/00/L3THs2eMqkeAOHnNAAABirqYpHE371.svg - ApiUpload.cpp:451
+20250119 07:31:19.679066Z INFO  执行: insert into file_info (md5, file_id, url, size, type, count) values ('2b297579fed0ab3f89fe62d2367492d1', 'group1/M00/00/00/L3THs2eMqkeAOHnNAAABirqYpHE371.svg', 'http://47.116.199.179:80/group1/M00/00/00/L3THs2eMqkeAOHnNAAABirqYpHE371.svg', '394', 'svg', 1) - ApiUpload.cpp:216
+20250119 07:31:19.685085Z INFO  执行: insert into user_file_list(user, md5, create_time, file_name, shared_status, pv) values ('qhrrr', '2b297579fed0ab3f89fe62d2367492d1', '2025-01-19 15:31:19', 'lightning-charge.svg', 0, 0) - ApiUpload.cpp:239
+20250119 07:31:19.690244Z INFO  qhrrr - 0 - ApiCommon.cpp:93
+20250119 07:31:19.690342Z INFO  write complete - HttpConn.cpp:490
+20250119 07:31:20.454905Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 07:31:20.454925Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 07:31:20.454958Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 07:31:20.455159Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 07:31:20.455300Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 07:31:20.456548Z INFO  row_num: 6 - DBPool.cpp:332
+20250119 07:31:20.456883Z INFO  write complete - HttpConn.cpp:490
+20250119 07:31:23.560072Z INFO  url: /api/md5 - HttpConn.cpp:233
+20250119 07:31:23.560164Z ERROR filename null
+ - ApiMd5.cpp:53
+20250119 07:31:23.560177Z ERROR decodeMd5Json() err - ApiMd5.cpp:191
+20250119 07:31:23.560202Z INFO  json size:11 - HttpConn.cpp:444
+20250119 07:31:23.560274Z INFO  write complete - HttpConn.cpp:490
+20250119 07:31:23.575931Z INFO  url: /api/upload - HttpConn.cpp:233
+20250119 07:31:23.575996Z INFO  post_data: ------WebKitFormBoundarydWBKnCNgxJBFUiTp
+Content-Disposition: form-data; name="file_name"
+
+copy.svg
+------WebKitFormBoundarydWBKnCNgxJBFUiTp
+Content-Disposition: form-data; name="file_content_type"
+
+image/svg+xml
+------WebKitFormBoundarydWBKnCNgxJBFUiTp
+Content-Disposition: form-data; name="file_path"
+
+/root/tmp/3/0000000033
+------WebKitFormBoundarydWBKnCNgxJBFUiTp
+Content-Disposition: form-data; name="file_md5"
+
+f56f8fa8b554809c95812214b607a491
+------WebKitFormBoundarydWBKnCNgxJBFUiTp
+Content-Disposition: form-data; name="file_size"
+
+406
+------WebKitFormBoundarydWBKnCNgxJBFUiTp
+Content-Disposition: form-data; name="user"
+
+qhrrr
+------WebKitFormBoundarydWBKnCNgxJBFUiTp--
+ - ApiUpload.cpp:297
+20250119 07:31:23.576016Z INFO  boundary: ------WebKitFormBoundarydWBKnCNgxJBFUiTp - ApiUpload.cpp:312
+20250119 07:31:23.576020Z INFO  file_name: copy.svg - ApiUpload.cpp:328
+20250119 07:31:23.576023Z INFO  file_content_type: image/svg+xml - ApiUpload.cpp:344
+20250119 07:31:23.576026Z INFO  file_path: /root/tmp/3/0000000033 - ApiUpload.cpp:360
+20250119 07:31:23.576030Z INFO  file_md5: f56f8fa8b554809c95812214b607a491 - ApiUpload.cpp:376
+20250119 07:31:23.576033Z INFO  file_size: 406 - ApiUpload.cpp:392
+20250119 07:31:23.576036Z INFO  user: qhrrr - ApiUpload.cpp:409
+20250119 07:31:23.576115Z INFO  uploadFileToFastDfs, file_name:copy.svg, new_file_path:/root/tmp/3/0000000033.svg - ApiUpload.cpp:425
+20250119 07:31:23.582691Z INFO  fileid1: group1/M00/00/00/L3THs2eMqkuAKD9NAAABllz317A826.svg
+ - ApiUpload.cpp:77
+20250119 07:31:23.582854Z INFO  fileid2: group1/M00/00/00/L3THs2eMqkuAKD9NAAABllz317A826.svg - ApiUpload.cpp:87
+20250119 07:31:23.583572Z INFO  unlink: /root/tmp/3/0000000033.svg - ApiUpload.cpp:433
+20250119 07:31:23.583720Z INFO  getFullurlByFileid, fileid: group1/M00/00/00/L3THs2eMqkuAKD9NAAABllz317A826.svg - ApiUpload.cpp:442
+20250119 07:31:23.588961Z INFO  fdfs_file_stat_buf: GET FROM SERVER: false
+
+file type: normal
+source storage id: 0
+source ip address: 47.116.199.179
+file create timestamp: 2025-01-19 15:31:23
+file size: 406
+file crc32: 1559746480 (0x5cf7d7b0)
+ - ApiUpload.cpp:165
+20250119 07:31:23.589216Z INFO  host_name:47.116.199.179, fdfs_file_host_name: 47.116.199.179 - ApiUpload.cpp:175
+20250119 07:31:23.589239Z INFO  fdfs_file_url:http://47.116.199.179:80/group1/M00/00/00/L3THs2eMqkuAKD9NAAABllz317A826.svg - ApiUpload.cpp:186
+20250119 07:31:23.589249Z INFO  storeFileinfo, url: http://47.116.199.179:80/group1/M00/00/00/L3THs2eMqkuAKD9NAAABllz317A826.svg - ApiUpload.cpp:451
+20250119 07:31:23.589264Z INFO  执行: insert into file_info (md5, file_id, url, size, type, count) values ('f56f8fa8b554809c95812214b607a491', 'group1/M00/00/00/L3THs2eMqkuAKD9NAAABllz317A826.svg', 'http://47.116.199.179:80/group1/M00/00/00/L3THs2eMqkuAKD9NAAABllz317A826.svg', '406', 'svg', 1) - ApiUpload.cpp:216
+20250119 07:31:23.595833Z INFO  执行: insert into user_file_list(user, md5, create_time, file_name, shared_status, pv) values ('qhrrr', 'f56f8fa8b554809c95812214b607a491', '2025-01-19 15:31:23', 'copy.svg', 0, 0) - ApiUpload.cpp:239
+20250119 07:31:23.607634Z INFO  qhrrr - 0 - ApiCommon.cpp:93
+20250119 07:31:23.608656Z INFO  write complete - HttpConn.cpp:490
+20250119 07:31:24.359494Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 07:31:24.359544Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 07:31:24.359616Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 07:31:24.360065Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 07:31:24.360501Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 07:31:24.361713Z INFO  row_num: 7 - DBPool.cpp:332
+20250119 07:31:24.362127Z INFO  write complete - HttpConn.cpp:490
+20250119 07:31:26.397224Z INFO  url: /api/md5 - HttpConn.cpp:233
+20250119 07:31:26.397278Z ERROR filename null
+ - ApiMd5.cpp:53
+20250119 07:31:26.397288Z ERROR decodeMd5Json() err - ApiMd5.cpp:191
+20250119 07:31:26.397307Z INFO  json size:11 - HttpConn.cpp:444
+20250119 07:31:26.397348Z INFO  write complete - HttpConn.cpp:490
+20250119 07:31:26.414112Z INFO  url: /api/upload - HttpConn.cpp:233
+20250119 07:31:26.414136Z INFO  post_data: ------WebKitFormBoundaryB1j8nDBFofWHQ1BG
+Content-Disposition: form-data; name="file_name"
+
+app-indicator.svg
+------WebKitFormBoundaryB1j8nDBFofWHQ1BG
+Content-Disposition: form-data; name="file_content_type"
+
+image/svg+xml
+------WebKitFormBoundaryB1j8nDBFofWHQ1BG
+Content-Disposition: form-data; name="file_path"
+
+/root/tmp/4/0000000034
+------WebKitFormBoundaryB1j8nDBFofWHQ1BG
+Content-Disposition: form-data; name="file_md5"
+
+31b8f3fca09ad977d917b1c0a12906b1
+------WebKitFormBoundaryB1j8nDBFofWHQ1BG
+Content-Disposition: form-data; name="file_size"
+
+382
+------WebKitFormBoundaryB1j8nDBFofWHQ1BG
+Content-Disposition: form-data; name="user"
+
+qhrrr
+------WebKitFormBoundaryB1j8nDBFofWHQ1BG--
+ - ApiUpload.cpp:297
+20250119 07:31:26.414149Z INFO  boundary: ------WebKitFormBoundaryB1j8nDBFofWHQ1BG - ApiUpload.cpp:312
+20250119 07:31:26.414151Z INFO  file_name: app-indicator.svg - ApiUpload.cpp:328
+20250119 07:31:26.414154Z INFO  file_content_type: image/svg+xml - ApiUpload.cpp:344
+20250119 07:31:26.414156Z INFO  file_path: /root/tmp/4/0000000034 - ApiUpload.cpp:360
+20250119 07:31:26.414159Z INFO  file_md5: 31b8f3fca09ad977d917b1c0a12906b1 - ApiUpload.cpp:376
+20250119 07:31:26.414161Z INFO  file_size: 382 - ApiUpload.cpp:392
+20250119 07:31:26.414163Z INFO  user: qhrrr - ApiUpload.cpp:409
+20250119 07:31:26.414189Z INFO  uploadFileToFastDfs, file_name:app-indicator.svg, new_file_path:/root/tmp/4/0000000034.svg - ApiUpload.cpp:425
+20250119 07:31:26.420036Z INFO  fileid1: group1/M00/00/00/L3THs2eMqk6AZb5ZAAABfuLPDmM099.svg
+ - ApiUpload.cpp:77
+20250119 07:31:26.420119Z INFO  fileid2: group1/M00/00/00/L3THs2eMqk6AZb5ZAAABfuLPDmM099.svg - ApiUpload.cpp:87
+20250119 07:31:26.421320Z INFO  unlink: /root/tmp/4/0000000034.svg - ApiUpload.cpp:433
+20250119 07:31:26.421477Z INFO  getFullurlByFileid, fileid: group1/M00/00/00/L3THs2eMqk6AZb5ZAAABfuLPDmM099.svg - ApiUpload.cpp:442
+20250119 07:31:26.426762Z INFO  fdfs_file_stat_buf: GET FROM SERVER: false
+
+file type: normal
+source storage id: 0
+source ip address: 47.116.199.179
+file create timestamp: 2025-01-19 15:31:26
+file size: 382
+file crc32: -489746845 (0xe2cf0e63)
+ - ApiUpload.cpp:165
+20250119 07:31:26.426805Z INFO  host_name:47.116.199.179, fdfs_file_host_name: 47.116.199.179 - ApiUpload.cpp:175
+20250119 07:31:26.426820Z INFO  fdfs_file_url:http://47.116.199.179:80/group1/M00/00/00/L3THs2eMqk6AZb5ZAAABfuLPDmM099.svg - ApiUpload.cpp:186
+20250119 07:31:26.426827Z INFO  storeFileinfo, url: http://47.116.199.179:80/group1/M00/00/00/L3THs2eMqk6AZb5ZAAABfuLPDmM099.svg - ApiUpload.cpp:451
+20250119 07:31:26.426835Z INFO  执行: insert into file_info (md5, file_id, url, size, type, count) values ('31b8f3fca09ad977d917b1c0a12906b1', 'group1/M00/00/00/L3THs2eMqk6AZb5ZAAABfuLPDmM099.svg', 'http://47.116.199.179:80/group1/M00/00/00/L3THs2eMqk6AZb5ZAAABfuLPDmM099.svg', '382', 'svg', 1) - ApiUpload.cpp:216
+20250119 07:31:26.433534Z INFO  执行: insert into user_file_list(user, md5, create_time, file_name, shared_status, pv) values ('qhrrr', '31b8f3fca09ad977d917b1c0a12906b1', '2025-01-19 15:31:26', 'app-indicator.svg', 0, 0) - ApiUpload.cpp:239
+20250119 07:31:26.438969Z INFO  qhrrr - 0 - ApiCommon.cpp:93
+20250119 07:31:26.439070Z INFO  write complete - HttpConn.cpp:490
+20250119 07:31:28.296357Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 07:31:28.296400Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 07:31:28.296503Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 07:31:28.296890Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 07:31:28.297142Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 07:31:28.298327Z INFO  row_num: 8 - DBPool.cpp:332
+20250119 07:31:28.298749Z INFO  write complete - HttpConn.cpp:490
+20250119 07:31:32.160226Z INFO  url: /api/md5 - HttpConn.cpp:233
+20250119 07:31:32.160282Z ERROR filename null
+ - ApiMd5.cpp:53
+20250119 07:31:32.160301Z ERROR decodeMd5Json() err - ApiMd5.cpp:191
+20250119 07:31:32.160334Z INFO  json size:11 - HttpConn.cpp:444
+20250119 07:31:32.160505Z INFO  write complete - HttpConn.cpp:490
+20250119 07:31:32.176759Z INFO  url: /api/upload - HttpConn.cpp:233
+20250119 07:31:32.176825Z INFO  post_data: ------WebKitFormBoundaryXzdcocDnw4GjkpQE
+Content-Disposition: form-data; name="file_name"
+
+bluetooth.svg
+------WebKitFormBoundaryXzdcocDnw4GjkpQE
+Content-Disposition: form-data; name="file_content_type"
+
+image/svg+xml
+------WebKitFormBoundaryXzdcocDnw4GjkpQE
+Content-Disposition: form-data; name="file_path"
+
+/root/tmp/5/0000000035
+------WebKitFormBoundaryXzdcocDnw4GjkpQE
+Content-Disposition: form-data; name="file_md5"
+
+021925ad1040d56b6631b94e962bdf62
+------WebKitFormBoundaryXzdcocDnw4GjkpQE
+Content-Disposition: form-data; name="file_size"
+
+477
+------WebKitFormBoundaryXzdcocDnw4GjkpQE
+Content-Disposition: form-data; name="user"
+
+qhrrr
+------WebKitFormBoundaryXzdcocDnw4GjkpQE--
+ - ApiUpload.cpp:297
+20250119 07:31:32.176847Z INFO  boundary: ------WebKitFormBoundaryXzdcocDnw4GjkpQE - ApiUpload.cpp:312
+20250119 07:31:32.176851Z INFO  file_name: bluetooth.svg - ApiUpload.cpp:328
+20250119 07:31:32.176856Z INFO  file_content_type: image/svg+xml - ApiUpload.cpp:344
+20250119 07:31:32.176859Z INFO  file_path: /root/tmp/5/0000000035 - ApiUpload.cpp:360
+20250119 07:31:32.176873Z INFO  file_md5: 021925ad1040d56b6631b94e962bdf62 - ApiUpload.cpp:376
+20250119 07:31:32.176878Z INFO  file_size: 477 - ApiUpload.cpp:392
+20250119 07:31:32.176882Z INFO  user: qhrrr - ApiUpload.cpp:409
+20250119 07:31:32.176962Z INFO  uploadFileToFastDfs, file_name:bluetooth.svg, new_file_path:/root/tmp/5/0000000035.svg - ApiUpload.cpp:425
+20250119 07:31:32.182677Z INFO  fileid1: group1/M00/00/00/L3THs2eMqlSAfNQHAAAB3Tw8PWY984.svg
+ - ApiUpload.cpp:77
+20250119 07:31:32.182733Z INFO  fileid2: group1/M00/00/00/L3THs2eMqlSAfNQHAAAB3Tw8PWY984.svg - ApiUpload.cpp:87
+20250119 07:31:32.183136Z INFO  unlink: /root/tmp/5/0000000035.svg - ApiUpload.cpp:433
+20250119 07:31:32.183286Z INFO  getFullurlByFileid, fileid: group1/M00/00/00/L3THs2eMqlSAfNQHAAAB3Tw8PWY984.svg - ApiUpload.cpp:442
+20250119 07:31:32.186839Z INFO  fdfs_file_stat_buf: GET FROM SERVER: false
+
+file type: normal
+source storage id: 0
+source ip address: 47.116.199.179
+file create timestamp: 2025-01-19 15:31:32
+file size: 477
+file crc32: 1010580838 (0x3c3c3d66)
+ - ApiUpload.cpp:165
+20250119 07:31:32.186884Z INFO  host_name:47.116.199.179, fdfs_file_host_name: 47.116.199.179 - ApiUpload.cpp:175
+20250119 07:31:32.186897Z INFO  fdfs_file_url:http://47.116.199.179:80/group1/M00/00/00/L3THs2eMqlSAfNQHAAAB3Tw8PWY984.svg - ApiUpload.cpp:186
+20250119 07:31:32.186907Z INFO  storeFileinfo, url: http://47.116.199.179:80/group1/M00/00/00/L3THs2eMqlSAfNQHAAAB3Tw8PWY984.svg - ApiUpload.cpp:451
+20250119 07:31:32.186915Z INFO  执行: insert into file_info (md5, file_id, url, size, type, count) values ('021925ad1040d56b6631b94e962bdf62', 'group1/M00/00/00/L3THs2eMqlSAfNQHAAAB3Tw8PWY984.svg', 'http://47.116.199.179:80/group1/M00/00/00/L3THs2eMqlSAfNQHAAAB3Tw8PWY984.svg', '477', 'svg', 1) - ApiUpload.cpp:216
+20250119 07:31:32.192298Z INFO  执行: insert into user_file_list(user, md5, create_time, file_name, shared_status, pv) values ('qhrrr', '021925ad1040d56b6631b94e962bdf62', '2025-01-19 15:31:32', 'bluetooth.svg', 0, 0) - ApiUpload.cpp:239
+20250119 07:31:32.198570Z INFO  qhrrr - 0 - ApiCommon.cpp:93
+20250119 07:31:32.198770Z INFO  write complete - HttpConn.cpp:490
+20250119 07:31:32.999510Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 07:31:32.999559Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 07:31:32.999632Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 07:31:33.000077Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 07:31:33.000476Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 07:31:33.001747Z INFO  row_num: 9 - DBPool.cpp:332
+20250119 07:31:33.002249Z INFO  write complete - HttpConn.cpp:490
+20250119 07:31:38.487486Z INFO  url: /api/md5 - HttpConn.cpp:233
+20250119 07:31:38.487595Z ERROR filename null
+ - ApiMd5.cpp:53
+20250119 07:31:38.487605Z ERROR decodeMd5Json() err - ApiMd5.cpp:191
+20250119 07:31:38.487628Z INFO  json size:11 - HttpConn.cpp:444
+20250119 07:31:38.487696Z INFO  write complete - HttpConn.cpp:490
+20250119 07:31:38.503582Z INFO  url: /api/upload - HttpConn.cpp:233
+20250119 07:31:38.503648Z INFO  post_data: ------WebKitFormBoundaryRYgp9W1lluqDudBV
+Content-Disposition: form-data; name="file_name"
+
+geo-alt.svg
+------WebKitFormBoundaryRYgp9W1lluqDudBV
+Content-Disposition: form-data; name="file_content_type"
+
+image/svg+xml
+------WebKitFormBoundaryRYgp9W1lluqDudBV
+Content-Disposition: form-data; name="file_path"
+
+/root/tmp/6/0000000036
+------WebKitFormBoundaryRYgp9W1lluqDudBV
+Content-Disposition: form-data; name="file_md5"
+
+00b6dff6edb02715da3135c8b7c315c1
+------WebKitFormBoundaryRYgp9W1lluqDudBV
+Content-Disposition: form-data; name="file_size"
+
+463
+------WebKitFormBoundaryRYgp9W1lluqDudBV
+Content-Disposition: form-data; name="user"
+
+qhrrr
+------WebKitFormBoundaryRYgp9W1lluqDudBV--
+ - ApiUpload.cpp:297
+20250119 07:31:38.503667Z INFO  boundary: ------WebKitFormBoundaryRYgp9W1lluqDudBV - ApiUpload.cpp:312
+20250119 07:31:38.503672Z INFO  file_name: geo-alt.svg - ApiUpload.cpp:328
+20250119 07:31:38.503681Z INFO  file_content_type: image/svg+xml - ApiUpload.cpp:344
+20250119 07:31:38.503685Z INFO  file_path: /root/tmp/6/0000000036 - ApiUpload.cpp:360
+20250119 07:31:38.503689Z INFO  file_md5: 00b6dff6edb02715da3135c8b7c315c1 - ApiUpload.cpp:376
+20250119 07:31:38.503693Z INFO  file_size: 463 - ApiUpload.cpp:392
+20250119 07:31:38.503696Z INFO  user: qhrrr - ApiUpload.cpp:409
+20250119 07:31:38.503762Z INFO  uploadFileToFastDfs, file_name:geo-alt.svg, new_file_path:/root/tmp/6/0000000036.svg - ApiUpload.cpp:425
+20250119 07:31:38.512619Z INFO  fileid1: group1/M00/00/00/L3THs2eMqlqATU9TAAABz_2R43o384.svg
+ - ApiUpload.cpp:77
+20250119 07:31:38.512687Z INFO  fileid2: group1/M00/00/00/L3THs2eMqlqATU9TAAABz_2R43o384.svg - ApiUpload.cpp:87
+20250119 07:31:38.513000Z INFO  unlink: /root/tmp/6/0000000036.svg - ApiUpload.cpp:433
+20250119 07:31:38.513118Z INFO  getFullurlByFileid, fileid: group1/M00/00/00/L3THs2eMqlqATU9TAAABz_2R43o384.svg - ApiUpload.cpp:442
+20250119 07:31:38.517639Z INFO  fdfs_file_stat_buf: GET FROM SERVER: false
+
+file type: normal
+source storage id: 0
+source ip address: 47.116.199.179
+file create timestamp: 2025-01-19 15:31:38
+file size: 463
+file crc32: -40770694 (0xfd91e37a)
+ - ApiUpload.cpp:165
+20250119 07:31:38.517681Z INFO  host_name:47.116.199.179, fdfs_file_host_name: 47.116.199.179 - ApiUpload.cpp:175
+20250119 07:31:38.517693Z INFO  fdfs_file_url:http://47.116.199.179:80/group1/M00/00/00/L3THs2eMqlqATU9TAAABz_2R43o384.svg - ApiUpload.cpp:186
+20250119 07:31:38.517700Z INFO  storeFileinfo, url: http://47.116.199.179:80/group1/M00/00/00/L3THs2eMqlqATU9TAAABz_2R43o384.svg - ApiUpload.cpp:451
+20250119 07:31:38.517708Z INFO  执行: insert into file_info (md5, file_id, url, size, type, count) values ('00b6dff6edb02715da3135c8b7c315c1', 'group1/M00/00/00/L3THs2eMqlqATU9TAAABz_2R43o384.svg', 'http://47.116.199.179:80/group1/M00/00/00/L3THs2eMqlqATU9TAAABz_2R43o384.svg', '463', 'svg', 1) - ApiUpload.cpp:216
+20250119 07:31:38.523294Z INFO  执行: insert into user_file_list(user, md5, create_time, file_name, shared_status, pv) values ('qhrrr', '00b6dff6edb02715da3135c8b7c315c1', '2025-01-19 15:31:38', 'geo-alt.svg', 0, 0) - ApiUpload.cpp:239
+20250119 07:31:38.528270Z INFO  qhrrr - 0 - ApiCommon.cpp:93
+20250119 07:31:38.528380Z INFO  write complete - HttpConn.cpp:490
+20250119 07:31:39.720287Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 07:31:39.720349Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 07:31:39.720432Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 07:31:39.720776Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 07:31:39.721062Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 07:31:39.722251Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 07:31:39.722769Z INFO  write complete - HttpConn.cpp:490
+20250119 07:31:44.229543Z INFO  url: /api/md5 - HttpConn.cpp:233
+20250119 07:31:44.229597Z ERROR filename null
+ - ApiMd5.cpp:53
+20250119 07:31:44.229607Z ERROR decodeMd5Json() err - ApiMd5.cpp:191
+20250119 07:31:44.229626Z INFO  json size:11 - HttpConn.cpp:444
+20250119 07:31:44.229659Z INFO  write complete - HttpConn.cpp:490
+20250119 07:31:44.244583Z INFO  url: /api/upload - HttpConn.cpp:233
+20250119 07:31:44.244642Z INFO  post_data: ------WebKitFormBoundarymP90Uo52BoBtuZsN
+Content-Disposition: form-data; name="file_name"
+
+person-lock.svg
+------WebKitFormBoundarymP90Uo52BoBtuZsN
+Content-Disposition: form-data; name="file_content_type"
+
+image/svg+xml
+------WebKitFormBoundarymP90Uo52BoBtuZsN
+Content-Disposition: form-data; name="file_path"
+
+/root/tmp/7/0000000037
+------WebKitFormBoundarymP90Uo52BoBtuZsN
+Content-Disposition: form-data; name="file_md5"
+
+19ec1702bfb1f012d1b70473371c3b24
+------WebKitFormBoundarymP90Uo52BoBtuZsN
+Content-Disposition: form-data; name="file_size"
+
+490
+------WebKitFormBoundarymP90Uo52BoBtuZsN
+Content-Disposition: form-data; name="user"
+
+qhrrr
+------WebKitFormBoundarymP90Uo52BoBtuZsN--
+ - ApiUpload.cpp:297
+20250119 07:31:44.244662Z INFO  boundary: ------WebKitFormBoundarymP90Uo52BoBtuZsN - ApiUpload.cpp:312
+20250119 07:31:44.244667Z INFO  file_name: person-lock.svg - ApiUpload.cpp:328
+20250119 07:31:44.244670Z INFO  file_content_type: image/svg+xml - ApiUpload.cpp:344
+20250119 07:31:44.244674Z INFO  file_path: /root/tmp/7/0000000037 - ApiUpload.cpp:360
+20250119 07:31:44.244677Z INFO  file_md5: 19ec1702bfb1f012d1b70473371c3b24 - ApiUpload.cpp:376
+20250119 07:31:44.244681Z INFO  file_size: 490 - ApiUpload.cpp:392
+20250119 07:31:44.244684Z INFO  user: qhrrr - ApiUpload.cpp:409
+20250119 07:31:44.244775Z INFO  uploadFileToFastDfs, file_name:person-lock.svg, new_file_path:/root/tmp/7/0000000037.svg - ApiUpload.cpp:425
+20250119 07:31:44.250704Z INFO  fileid1: group1/M00/00/00/L3THs2eMqmCAZAqWAAAB6lYQJy0951.svg
+ - ApiUpload.cpp:77
+20250119 07:31:44.250783Z INFO  fileid2: group1/M00/00/00/L3THs2eMqmCAZAqWAAAB6lYQJy0951.svg - ApiUpload.cpp:87
+20250119 07:31:44.251399Z INFO  unlink: /root/tmp/7/0000000037.svg - ApiUpload.cpp:433
+20250119 07:31:44.251494Z INFO  getFullurlByFileid, fileid: group1/M00/00/00/L3THs2eMqmCAZAqWAAAB6lYQJy0951.svg - ApiUpload.cpp:442
+20250119 07:31:44.255193Z INFO  fdfs_file_stat_buf: GET FROM SERVER: false
+
+file type: normal
+source storage id: 0
+source ip address: 47.116.199.179
+file create timestamp: 2025-01-19 15:31:44
+file size: 490
+file crc32: 1443899181 (0x5610272d)
+ - ApiUpload.cpp:165
+20250119 07:31:44.255236Z INFO  host_name:47.116.199.179, fdfs_file_host_name: 47.116.199.179 - ApiUpload.cpp:175
+20250119 07:31:44.255248Z INFO  fdfs_file_url:http://47.116.199.179:80/group1/M00/00/00/L3THs2eMqmCAZAqWAAAB6lYQJy0951.svg - ApiUpload.cpp:186
+20250119 07:31:44.255258Z INFO  storeFileinfo, url: http://47.116.199.179:80/group1/M00/00/00/L3THs2eMqmCAZAqWAAAB6lYQJy0951.svg - ApiUpload.cpp:451
+20250119 07:31:44.255265Z INFO  执行: insert into file_info (md5, file_id, url, size, type, count) values ('19ec1702bfb1f012d1b70473371c3b24', 'group1/M00/00/00/L3THs2eMqmCAZAqWAAAB6lYQJy0951.svg', 'http://47.116.199.179:80/group1/M00/00/00/L3THs2eMqmCAZAqWAAAB6lYQJy0951.svg', '490', 'svg', 1) - ApiUpload.cpp:216
+20250119 07:31:44.262482Z INFO  执行: insert into user_file_list(user, md5, create_time, file_name, shared_status, pv) values ('qhrrr', '19ec1702bfb1f012d1b70473371c3b24', '2025-01-19 15:31:44', 'person-lock.svg', 0, 0) - ApiUpload.cpp:239
+20250119 07:31:44.267221Z INFO  qhrrr - 0 - ApiCommon.cpp:93
+20250119 07:31:44.267314Z INFO  write complete - HttpConn.cpp:490
+20250119 07:31:45.014104Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 07:31:45.014142Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 07:31:45.014227Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 07:31:45.014746Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 07:31:45.014943Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 07:31:45.016405Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 07:31:45.016791Z INFO  write complete - HttpConn.cpp:490
+20250119 07:31:46.043701Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 07:31:46.043758Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 07:31:46.043822Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:10, count:10 - ApiMyfiles.cpp:340
+20250119 07:31:46.044136Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 07:31:46.044345Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 10, 10 - ApiMyfiles.cpp:237
+20250119 07:31:46.045342Z INFO  row_num: 1 - DBPool.cpp:332
+20250119 07:31:46.045635Z INFO  write complete - HttpConn.cpp:490
+20250119 07:31:46.884612Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 07:31:46.884662Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 07:31:46.884726Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 07:31:46.885163Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 07:31:46.885340Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 07:31:46.886535Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 07:31:46.887094Z INFO  write complete - HttpConn.cpp:490
+20250119 07:31:48.574363Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 07:31:48.574401Z INFO   post_data: {"count":2,"start":0} - ApiSharefiles.cpp:377
+20250119 07:31:48.574411Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 07:31:48.575560Z INFO  row_num: 1 - DBPool.cpp:332
+20250119 07:31:48.575601Z INFO  count: 0 - ApiCommon.cpp:199
+20250119 07:31:48.576027Z INFO  write complete - HttpConn.cpp:490
+20250119 07:31:50.177736Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 07:31:50.177773Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 07:31:50.177829Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 07:31:50.178104Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 07:31:50.178243Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 07:31:50.179500Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 07:31:50.180074Z INFO  write complete - HttpConn.cpp:490
+20250119 07:31:55.208127Z INFO  url: /api/dealfiles?cmd=share - HttpConn.cpp:233
+20250119 07:31:55.208149Z INFO  cmd =share - ApiDealfile.cpp:469
+20250119 07:31:55.208206Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, md5:15743cb3bbaa0665144bd8907ad024a4, filename:技术路线.png - ApiDealfile.cpp:478
+20250119 07:31:55.208623Z INFO  fileid: 15743cb3bbaa0665144bd8907ad024a4技术路线.png, ZsetExit: 0 - ApiDealfile.cpp:107
+20250119 07:31:55.209537Z INFO  row_num: 0 - DBPool.cpp:332
+20250119 07:31:55.222483Z INFO  FILE_PUBLIC_COUNT - 1 - ApiCommon.cpp:93
+20250119 07:31:55.225927Z INFO  str_json: {"code":0}
+ - ApiDealfile.cpp:69
+20250119 07:31:55.226025Z INFO  write complete - HttpConn.cpp:490
+20250119 07:31:58.671717Z INFO  url: /api/dealfile?cmd=pv - HttpConn.cpp:233
+20250119 07:31:58.671760Z INFO  cmd =pv - ApiDealfile.cpp:469
+20250119 07:31:58.671820Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, md5:15743cb3bbaa0665144bd8907ad024a4, filename:技术路线.png - ApiDealfile.cpp:478
+20250119 07:31:58.672169Z INFO  执行: select pv, shared_status from user_file_list where user = 'qhrrr' and md5 = '15743cb3bbaa0665144bd8907ad024a4' and file_name = '技术路线.png' - ApiDealfile.cpp:399
+20250119 07:31:58.672985Z INFO  row_num: 1 - DBPool.cpp:332
+20250119 07:31:58.673059Z INFO  执行: update user_file_list set pv = 1 where user = 'qhrrr' and md5 = '15743cb3bbaa0665144bd8907ad024a4' and file_name = '技术路线.png' - ApiDealfile.cpp:416
+20250119 07:31:58.678604Z INFO  执行: update share_file_list set pv = 1 where user = 'qhrrr' and md5 = '15743cb3bbaa0665144bd8907ad024a4' and file_name = '技术路线.png' - ApiDealfile.cpp:427
+20250119 07:31:58.683968Z INFO  str_json: {"code":0}
+ - ApiDealfile.cpp:69
+20250119 07:31:58.684053Z INFO  write complete - HttpConn.cpp:490
+20250119 07:32:02.324150Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 07:32:02.324220Z INFO   post_data: {"count":2,"start":0} - ApiSharefiles.cpp:377
+20250119 07:32:02.324230Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 07:32:02.324598Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 2 - ApiSharefiles.cpp:147
+20250119 07:32:02.325928Z INFO  row_num: 1 - DBPool.cpp:332
+20250119 07:32:02.326231Z INFO  write complete - HttpConn.cpp:490
+20250119 07:32:03.328509Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 07:32:03.328564Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 07:32:03.328626Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 07:32:03.328958Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 07:32:03.329558Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 07:32:03.330954Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 07:32:03.331384Z INFO  write complete - HttpConn.cpp:490
+20250119 07:32:09.983203Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 07:32:09.983222Z INFO   post_data: {"count":2,"start":0} - ApiSharefiles.cpp:377
+20250119 07:32:09.983233Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 07:32:09.983524Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 2 - ApiSharefiles.cpp:147
+20250119 07:32:09.984959Z INFO  row_num: 1 - DBPool.cpp:332
+20250119 07:32:09.985177Z INFO  write complete - HttpConn.cpp:490
+20250119 07:32:10.788737Z INFO  url: /api/sharefiles?cmd=pvdesc - HttpConn.cpp:233
+20250119 07:32:10.788780Z INFO   post_data: {"count":2,"start":0} - ApiSharefiles.cpp:377
+20250119 07:32:10.788789Z INFO  cmd = pvdesc - ApiSharefiles.cpp:381
+20250119 07:32:10.789130Z INFO  sql_num: 1, redis_num: 5 - ApiSharefiles.cpp:244
+20250119 07:32:10.789256Z INFO  执行: select md5, file_name, pv from share_file_list order by pv desc - ApiSharefiles.cpp:257
+20250119 07:32:10.790183Z INFO  row_num: 1 - DBPool.cpp:332
+20250119 07:32:10.791515Z INFO  write complete - HttpConn.cpp:490
+20250119 07:32:11.781042Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 07:32:11.781055Z INFO   post_data: {"count":2,"start":0} - ApiSharefiles.cpp:377
+20250119 07:32:11.781060Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 07:32:11.781260Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 2 - ApiSharefiles.cpp:147
+20250119 07:32:11.782605Z INFO  row_num: 1 - DBPool.cpp:332
+20250119 07:32:11.782758Z INFO  write complete - HttpConn.cpp:490
+20250119 07:32:13.329274Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 07:32:13.329314Z INFO   post_data: {"count":2,"start":0} - ApiSharefiles.cpp:377
+20250119 07:32:13.329323Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 07:32:13.329688Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 2 - ApiSharefiles.cpp:147
+20250119 07:32:13.330931Z INFO  row_num: 1 - DBPool.cpp:332
+20250119 07:32:13.331215Z INFO  write complete - HttpConn.cpp:490
+20250119 07:32:14.339534Z INFO  url: /api/sharefiles?cmd=pvdesc - HttpConn.cpp:233
+20250119 07:32:14.339574Z INFO   post_data: {"count":2,"start":0} - ApiSharefiles.cpp:377
+20250119 07:32:14.339581Z INFO  cmd = pvdesc - ApiSharefiles.cpp:381
+20250119 07:32:14.340262Z INFO  sql_num: 1, redis_num: 1 - ApiSharefiles.cpp:244
+20250119 07:32:14.340607Z INFO  write complete - HttpConn.cpp:490
+20250119 07:32:15.287627Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 07:32:15.287672Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 07:32:15.287741Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 07:32:15.288045Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 07:32:15.288229Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 07:32:15.289281Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 07:32:15.289751Z INFO  write complete - HttpConn.cpp:490
+20250119 07:32:17.572052Z INFO  url: /api/sharefiles?cmd=pvdesc - HttpConn.cpp:233
+20250119 07:32:17.572065Z INFO   post_data: {"count":2,"start":0} - ApiSharefiles.cpp:377
+20250119 07:32:17.572069Z INFO  cmd = pvdesc - ApiSharefiles.cpp:381
+20250119 07:32:17.572362Z INFO  sql_num: 1, redis_num: 1 - ApiSharefiles.cpp:244
+20250119 07:32:17.572790Z INFO  write complete - HttpConn.cpp:490
+20250119 07:32:23.458114Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 07:32:23.458159Z INFO   post_data: {"count":2,"start":0} - ApiSharefiles.cpp:377
+20250119 07:32:23.458168Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 07:32:23.458607Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 2 - ApiSharefiles.cpp:147
+20250119 07:32:23.459851Z INFO  row_num: 1 - DBPool.cpp:332
+20250119 07:32:23.460180Z INFO  write complete - HttpConn.cpp:490
+20250119 07:32:24.375975Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 07:32:24.376017Z INFO   post_data: {"count":2,"start":0} - ApiSharefiles.cpp:377
+20250119 07:32:24.376027Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 07:32:24.376360Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 2 - ApiSharefiles.cpp:147
+20250119 07:32:24.377356Z INFO  row_num: 1 - DBPool.cpp:332
+20250119 07:32:24.377644Z INFO  write complete - HttpConn.cpp:490
+20250119 07:32:25.877477Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 07:32:25.877514Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 07:32:25.877583Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 07:32:25.877979Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 07:32:25.878205Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 07:32:25.879426Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 07:32:25.879941Z INFO  write complete - HttpConn.cpp:490
+20250119 07:34:14.868121Z INFO  url: /api/dealfile?cmd=pv - HttpConn.cpp:233
+20250119 07:34:14.868158Z INFO  cmd =pv - ApiDealfile.cpp:469
+20250119 07:34:14.868223Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, md5:414efe76af464f2ff6e6573dc2d46f2c, filename:columns.svg - ApiDealfile.cpp:478
+20250119 07:34:14.868564Z INFO  执行: select pv, shared_status from user_file_list where user = 'qhrrr' and md5 = '414efe76af464f2ff6e6573dc2d46f2c' and file_name = 'columns.svg' - ApiDealfile.cpp:399
+20250119 07:34:14.869522Z INFO  row_num: 1 - DBPool.cpp:332
+20250119 07:34:14.869572Z INFO  执行: update user_file_list set pv = 1 where user = 'qhrrr' and md5 = '414efe76af464f2ff6e6573dc2d46f2c' and file_name = 'columns.svg' - ApiDealfile.cpp:416
+20250119 07:34:14.875834Z INFO  str_json: {"code":0}
+ - ApiDealfile.cpp:69
+20250119 07:34:14.875990Z INFO  write complete - HttpConn.cpp:490
+20250119 07:34:16.158147Z INFO  url: /api/dealfile?cmd=pv - HttpConn.cpp:233
+20250119 07:34:16.158185Z INFO  cmd =pv - ApiDealfile.cpp:469
+20250119 07:34:16.158241Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, md5:15743cb3bbaa0665144bd8907ad024a4, filename:技术路线.png - ApiDealfile.cpp:478
+20250119 07:34:16.158579Z INFO  执行: select pv, shared_status from user_file_list where user = 'qhrrr' and md5 = '15743cb3bbaa0665144bd8907ad024a4' and file_name = '技术路线.png' - ApiDealfile.cpp:399
+20250119 07:34:16.159592Z INFO  row_num: 1 - DBPool.cpp:332
+20250119 07:34:16.159680Z INFO  执行: update user_file_list set pv = 2 where user = 'qhrrr' and md5 = '15743cb3bbaa0665144bd8907ad024a4' and file_name = '技术路线.png' - ApiDealfile.cpp:416
+20250119 07:34:16.164963Z INFO  执行: update share_file_list set pv = 2 where user = 'qhrrr' and md5 = '15743cb3bbaa0665144bd8907ad024a4' and file_name = '技术路线.png' - ApiDealfile.cpp:427
+20250119 07:34:16.170966Z INFO  str_json: {"code":0}
+ - ApiDealfile.cpp:69
+20250119 07:34:16.171118Z INFO  write complete - HttpConn.cpp:490
+20250119 07:34:17.226125Z INFO  url: /api/dealfile?cmd=pv - HttpConn.cpp:233
+20250119 07:34:17.226166Z INFO  cmd =pv - ApiDealfile.cpp:469
+20250119 07:34:17.226225Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, md5:15743cb3bbaa0665144bd8907ad024a4, filename:技术路线.png - ApiDealfile.cpp:478
+20250119 07:34:17.226569Z INFO  执行: select pv, shared_status from user_file_list where user = 'qhrrr' and md5 = '15743cb3bbaa0665144bd8907ad024a4' and file_name = '技术路线.png' - ApiDealfile.cpp:399
+20250119 07:34:17.228533Z INFO  row_num: 1 - DBPool.cpp:332
+20250119 07:34:17.228579Z INFO  执行: update user_file_list set pv = 3 where user = 'qhrrr' and md5 = '15743cb3bbaa0665144bd8907ad024a4' and file_name = '技术路线.png' - ApiDealfile.cpp:416
+20250119 07:34:17.234220Z INFO  执行: update share_file_list set pv = 3 where user = 'qhrrr' and md5 = '15743cb3bbaa0665144bd8907ad024a4' and file_name = '技术路线.png' - ApiDealfile.cpp:427
+20250119 07:34:17.241768Z INFO  str_json: {"code":0}
+ - ApiDealfile.cpp:69
+20250119 07:34:17.241863Z INFO  write complete - HttpConn.cpp:490
+20250119 07:34:18.452249Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 07:34:18.452264Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 07:34:18.452292Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 07:34:18.452520Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 07:34:18.452706Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 07:34:18.453907Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 07:34:18.454376Z INFO  write complete - HttpConn.cpp:490
+20250119 07:34:19.605859Z INFO  url: /api/sharefiles?cmd=pvdesc - HttpConn.cpp:233
+20250119 07:34:19.605904Z INFO   post_data: {"count":2,"start":0} - ApiSharefiles.cpp:377
+20250119 07:34:19.605912Z INFO  cmd = pvdesc - ApiSharefiles.cpp:381
+20250119 07:34:19.606291Z INFO  sql_num: 1, redis_num: 1 - ApiSharefiles.cpp:244
+20250119 07:34:19.606704Z INFO  write complete - HttpConn.cpp:490
+20250119 07:34:22.068833Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 07:34:22.068876Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 07:34:22.068936Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 07:34:22.069223Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 07:34:22.069361Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 07:34:22.071049Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 07:34:22.071484Z INFO  write complete - HttpConn.cpp:490
+20250119 07:34:27.168190Z INFO  url: /api/dealfiles?cmd=share - HttpConn.cpp:233
+20250119 07:34:27.168232Z INFO  cmd =share - ApiDealfile.cpp:469
+20250119 07:34:27.168307Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, md5:414efe76af464f2ff6e6573dc2d46f2c, filename:columns.svg - ApiDealfile.cpp:478
+20250119 07:34:27.168747Z INFO  fileid: 414efe76af464f2ff6e6573dc2d46f2ccolumns.svg, ZsetExit: 0 - ApiDealfile.cpp:107
+20250119 07:34:27.169673Z INFO  row_num: 0 - DBPool.cpp:332
+20250119 07:34:27.180728Z INFO  FILE_PUBLIC_COUNT - 2 - ApiCommon.cpp:93
+20250119 07:34:27.182635Z INFO  str_json: {"code":0}
+ - ApiDealfile.cpp:69
+20250119 07:34:27.182716Z INFO  write complete - HttpConn.cpp:490
+20250119 07:34:29.932714Z INFO  url: /api/sharefiles?cmd=pvdesc - HttpConn.cpp:233
+20250119 07:34:29.932757Z INFO   post_data: {"count":2,"start":0} - ApiSharefiles.cpp:377
+20250119 07:34:29.932765Z INFO  cmd = pvdesc - ApiSharefiles.cpp:381
+20250119 07:34:29.933132Z INFO  sql_num: 2, redis_num: 2 - ApiSharefiles.cpp:244
+20250119 07:34:29.933570Z INFO  write complete - HttpConn.cpp:490
+20250119 07:34:36.316004Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 07:34:36.316044Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 07:34:36.316107Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 07:34:36.316372Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 07:34:36.316604Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 07:34:36.317623Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 07:34:36.318126Z INFO  write complete - HttpConn.cpp:490
+20250119 07:34:49.609414Z INFO  url: /api/sharefiles?cmd=pvdesc - HttpConn.cpp:233
+20250119 07:34:49.609507Z INFO   post_data: {"count":2,"start":0} - ApiSharefiles.cpp:377
+20250119 07:34:49.609521Z INFO  cmd = pvdesc - ApiSharefiles.cpp:381
+20250119 07:34:49.609900Z INFO  sql_num: 2, redis_num: 2 - ApiSharefiles.cpp:244
+20250119 07:34:49.610339Z INFO  write complete - HttpConn.cpp:490
+20250119 07:38:36.247277Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 07:38:36.248268Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 07:38:36.248387Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 07:38:36.252857Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 07:38:36.253026Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 07:38:36.327106Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 07:38:36.327503Z INFO  write complete - HttpConn.cpp:490
+20250119 07:40:20.366526Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 07:40:20.366573Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 07:40:20.366643Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 07:40:20.366929Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 07:40:20.367104Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 07:40:20.368247Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 07:40:20.368695Z INFO  write complete - HttpConn.cpp:490
+20250119 07:41:23.272812Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 07:41:23.272857Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 07:41:23.272922Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 07:41:23.273217Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 07:41:23.273546Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 07:41:23.279780Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 07:41:23.280245Z INFO  write complete - HttpConn.cpp:490
+20250119 07:42:12.689113Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 07:42:12.689164Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 07:42:12.689226Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 07:42:12.689755Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 07:42:12.689911Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 07:42:12.692541Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 07:42:12.692958Z INFO  write complete - HttpConn.cpp:490
+20250119 07:42:21.340616Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 07:42:21.340638Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 07:42:21.340676Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 07:42:21.340877Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 07:42:21.341258Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 07:42:21.342424Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 07:42:21.342929Z INFO  write complete - HttpConn.cpp:490
+20250119 07:43:01.310825Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 07:43:01.310875Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 07:43:01.311185Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 07:43:01.311439Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 07:43:01.311613Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 07:43:01.312831Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 07:43:01.313270Z INFO  write complete - HttpConn.cpp:490
+20250119 07:43:21.695244Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 07:43:21.695266Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 07:43:21.695312Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 07:43:21.695574Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 07:43:21.695929Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 07:43:21.700337Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 07:43:21.701040Z INFO  write complete - HttpConn.cpp:490
+20250119 07:43:54.392626Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 07:43:54.392678Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 07:43:54.392742Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:10, count:10 - ApiMyfiles.cpp:340
+20250119 07:43:54.393031Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 07:43:54.393269Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 10, 10 - ApiMyfiles.cpp:237
+20250119 07:43:54.395399Z INFO  row_num: 1 - DBPool.cpp:332
+20250119 07:43:54.395717Z INFO  write complete - HttpConn.cpp:490
+20250119 07:43:54.925790Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 07:43:54.925830Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 07:43:54.925890Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 07:43:54.926206Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 07:43:54.926335Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 07:43:54.927643Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 07:43:54.928285Z INFO  write complete - HttpConn.cpp:490
+20250119 07:44:04.147226Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 07:44:04.147246Z INFO   post_data: {"count":2,"start":0} - ApiSharefiles.cpp:377
+20250119 07:44:04.147253Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 07:44:04.147513Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 2 - ApiSharefiles.cpp:147
+20250119 07:44:04.148803Z INFO  row_num: 2 - DBPool.cpp:332
+20250119 07:44:04.149774Z INFO  write complete - HttpConn.cpp:490
+20250119 07:45:30.557703Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 07:45:30.557726Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 07:45:30.557769Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 07:45:30.557999Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 07:45:30.558150Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 07:45:30.559360Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 07:45:30.559950Z INFO  write complete - HttpConn.cpp:490
+20250119 07:45:31.360916Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 07:45:31.360958Z INFO   post_data: {"count":2,"start":0} - ApiSharefiles.cpp:377
+20250119 07:45:31.360968Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 07:45:31.361264Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 2 - ApiSharefiles.cpp:147
+20250119 07:45:31.362395Z INFO  row_num: 2 - DBPool.cpp:332
+20250119 07:45:31.362736Z INFO  write complete - HttpConn.cpp:490
+20250119 07:45:32.579721Z INFO  url: /api/sharefiles?cmd=pvdesc - HttpConn.cpp:233
+20250119 07:45:32.579762Z INFO   post_data: {"count":2,"start":0} - ApiSharefiles.cpp:377
+20250119 07:45:32.579772Z INFO  cmd = pvdesc - ApiSharefiles.cpp:381
+20250119 07:45:32.581257Z INFO  sql_num: 2, redis_num: 2 - ApiSharefiles.cpp:244
+20250119 07:45:32.581952Z INFO  write complete - HttpConn.cpp:490
+20250119 07:45:33.703842Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 07:45:33.703923Z INFO   post_data: {"count":2,"start":0} - ApiSharefiles.cpp:377
+20250119 07:45:33.703931Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 07:45:33.704438Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 2 - ApiSharefiles.cpp:147
+20250119 07:45:33.705556Z INFO  row_num: 2 - DBPool.cpp:332
+20250119 07:45:33.705892Z INFO  write complete - HttpConn.cpp:490
+20250119 07:45:34.918419Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 07:45:34.918453Z INFO   post_data: {"count":2,"start":0} - ApiSharefiles.cpp:377
+20250119 07:45:34.918461Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 07:45:34.918974Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 2 - ApiSharefiles.cpp:147
+20250119 07:45:34.919958Z INFO  row_num: 2 - DBPool.cpp:332
+20250119 07:45:34.920330Z INFO  write complete - HttpConn.cpp:490
+20250119 07:45:35.819155Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 07:45:35.819195Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 07:45:35.819257Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 07:45:35.819565Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 07:45:35.819798Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 07:45:35.820993Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 07:45:35.821482Z INFO  write complete - HttpConn.cpp:490
+20250119 07:45:39.459706Z INFO  url: /api/dealfiles?cmd=share - HttpConn.cpp:233
+20250119 07:45:39.459751Z INFO  cmd =share - ApiDealfile.cpp:469
+20250119 07:45:39.459805Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, md5:2b297579fed0ab3f89fe62d2367492d1, filename:lightning-charge.svg - ApiDealfile.cpp:478
+20250119 07:45:39.460229Z INFO  fileid: 2b297579fed0ab3f89fe62d2367492d1lightning-charge.svg, ZsetExit: 0 - ApiDealfile.cpp:107
+20250119 07:45:39.461965Z INFO  row_num: 0 - DBPool.cpp:332
+20250119 07:45:39.526423Z INFO  FILE_PUBLIC_COUNT - 3 - ApiCommon.cpp:93
+20250119 07:45:39.527952Z INFO  str_json: {"code":0}
+ - ApiDealfile.cpp:69
+20250119 07:45:39.528012Z INFO  write complete - HttpConn.cpp:490
+20250119 07:45:42.726735Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 07:45:42.726774Z INFO   post_data: {"count":2,"start":0} - ApiSharefiles.cpp:377
+20250119 07:45:42.726782Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 07:45:42.727188Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 2 - ApiSharefiles.cpp:147
+20250119 07:45:42.728568Z INFO  row_num: 2 - DBPool.cpp:332
+20250119 07:45:42.728929Z INFO  write complete - HttpConn.cpp:490
+20250119 07:45:44.079766Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 07:45:44.079816Z INFO   post_data: {"count":2,"start":0} - ApiSharefiles.cpp:377
+20250119 07:45:44.079825Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 07:45:44.080149Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 2 - ApiSharefiles.cpp:147
+20250119 07:45:44.081215Z INFO  row_num: 2 - DBPool.cpp:332
+20250119 07:45:44.081594Z INFO  write complete - HttpConn.cpp:490
+20250119 07:45:45.446994Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 07:45:45.447014Z INFO   post_data: {"count":2,"start":0} - ApiSharefiles.cpp:377
+20250119 07:45:45.447024Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 07:45:45.447233Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 2 - ApiSharefiles.cpp:147
+20250119 07:45:45.448378Z INFO  row_num: 2 - DBPool.cpp:332
+20250119 07:45:45.448567Z INFO  write complete - HttpConn.cpp:490
+20250119 07:45:46.460202Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 07:45:46.460245Z INFO   post_data: {"count":2,"start":0} - ApiSharefiles.cpp:377
+20250119 07:45:46.460254Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 07:45:46.460568Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 2 - ApiSharefiles.cpp:147
+20250119 07:45:46.461694Z INFO  row_num: 2 - DBPool.cpp:332
+20250119 07:45:46.461963Z INFO  write complete - HttpConn.cpp:490
+20250119 07:45:47.863652Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 07:45:47.863677Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 07:45:47.863715Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 07:45:47.863943Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 07:45:47.864081Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 07:45:47.865434Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 07:45:47.865890Z INFO  write complete - HttpConn.cpp:490
+20250119 07:45:49.699591Z INFO  url: /api/dealfiles?cmd=share - HttpConn.cpp:233
+20250119 07:45:49.699641Z INFO  cmd =share - ApiDealfile.cpp:469
+20250119 07:45:49.699706Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, md5:f56f8fa8b554809c95812214b607a491, filename:copy.svg - ApiDealfile.cpp:478
+20250119 07:45:49.700183Z INFO  fileid: f56f8fa8b554809c95812214b607a491copy.svg, ZsetExit: 0 - ApiDealfile.cpp:107
+20250119 07:45:49.701201Z INFO  row_num: 0 - DBPool.cpp:332
+20250119 07:45:49.712941Z INFO  FILE_PUBLIC_COUNT - 4 - ApiCommon.cpp:93
+20250119 07:45:49.713269Z INFO  str_json: {"code":0}
+ - ApiDealfile.cpp:69
+20250119 07:45:49.713324Z INFO  write complete - HttpConn.cpp:490
+20250119 07:45:51.741821Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 07:45:51.741852Z INFO   post_data: {"count":2,"start":0} - ApiSharefiles.cpp:377
+20250119 07:45:51.741862Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 07:45:51.742153Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 2 - ApiSharefiles.cpp:147
+20250119 07:45:51.743122Z INFO  row_num: 2 - DBPool.cpp:332
+20250119 07:45:51.743446Z INFO  write complete - HttpConn.cpp:490
+20250119 07:48:32.084124Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 07:48:32.084182Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 07:48:32.084247Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 07:48:32.085750Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 07:48:32.085921Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 07:48:32.187739Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 07:48:32.188173Z INFO  write complete - HttpConn.cpp:490
+20250119 07:48:32.927273Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 07:48:32.927289Z INFO   post_data: {"count":2,"start":0} - ApiSharefiles.cpp:377
+20250119 07:48:32.927299Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 07:48:32.927491Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 2 - ApiSharefiles.cpp:147
+20250119 07:48:32.928625Z INFO  row_num: 2 - DBPool.cpp:332
+20250119 07:48:32.928812Z INFO  write complete - HttpConn.cpp:490
+20250119 07:48:44.469588Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 07:48:44.469635Z INFO   post_data: {"count":2,"start":0} - ApiSharefiles.cpp:377
+20250119 07:48:44.469645Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 07:48:44.470282Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 2 - ApiSharefiles.cpp:147
+20250119 07:48:44.472320Z INFO  row_num: 2 - DBPool.cpp:332
+20250119 07:48:44.472951Z INFO  write complete - HttpConn.cpp:490
+20250119 07:48:44.654867Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 07:48:44.654903Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250119 07:48:44.654913Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 07:48:44.655256Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 10 - ApiSharefiles.cpp:147
+20250119 07:48:44.656410Z INFO  row_num: 4 - DBPool.cpp:332
+20250119 07:48:44.656763Z INFO  write complete - HttpConn.cpp:490
+20250119 07:48:48.929075Z INFO  url: /api/sharefiles?cmd=pvdesc - HttpConn.cpp:233
+20250119 07:48:48.929117Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250119 07:48:48.929125Z INFO  cmd = pvdesc - ApiSharefiles.cpp:381
+20250119 07:48:48.929759Z INFO  sql_num: 4, redis_num: 4 - ApiSharefiles.cpp:244
+20250119 07:48:48.931075Z INFO  write complete - HttpConn.cpp:490
+20250119 07:48:50.170058Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 07:48:50.170101Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250119 07:48:50.170109Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 07:48:50.170633Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 10 - ApiSharefiles.cpp:147
+20250119 07:48:50.171772Z INFO  row_num: 4 - DBPool.cpp:332
+20250119 07:48:50.172186Z INFO  write complete - HttpConn.cpp:490
+20250119 07:48:56.437344Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 07:48:56.437382Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 07:48:56.437442Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 07:48:56.437734Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 07:48:56.437896Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 07:48:56.439123Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 07:48:56.439649Z INFO  write complete - HttpConn.cpp:490
+20250119 07:50:07.760235Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 07:50:07.760274Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250119 07:50:07.760288Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 07:50:07.760678Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 10 - ApiSharefiles.cpp:147
+20250119 07:50:07.761981Z INFO  row_num: 4 - DBPool.cpp:332
+20250119 07:50:07.762385Z INFO  write complete - HttpConn.cpp:490
+20250119 07:58:05.273288Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 07:58:05.273326Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250119 07:58:05.273334Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 07:58:05.274117Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 10 - ApiSharefiles.cpp:147
+20250119 07:58:05.275289Z INFO  row_num: 4 - DBPool.cpp:332
+20250119 07:58:05.275658Z INFO  write complete - HttpConn.cpp:490
+20250119 07:58:05.668107Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 07:58:05.668139Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250119 07:58:05.668148Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 07:58:05.668462Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 10 - ApiSharefiles.cpp:147
+20250119 07:58:05.669563Z INFO  row_num: 4 - DBPool.cpp:332
+20250119 07:58:05.669858Z INFO  write complete - HttpConn.cpp:490
+20250119 08:09:14.600344Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 08:09:14.600398Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250119 08:09:14.600408Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 08:09:14.601664Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 10 - ApiSharefiles.cpp:147
+20250119 08:09:14.618099Z INFO  row_num: 4 - DBPool.cpp:332
+20250119 08:09:14.618579Z INFO  write complete - HttpConn.cpp:490
+20250119 08:09:15.716558Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 08:09:15.716598Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 08:09:15.716659Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 08:09:15.716946Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 08:09:15.717108Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 08:09:15.719188Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 08:09:15.719563Z INFO  write complete - HttpConn.cpp:490
+20250119 08:12:14.301410Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 08:12:14.301439Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 08:12:14.301467Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 08:12:14.301710Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 08:12:14.301865Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 08:12:14.302984Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 08:12:14.303413Z INFO  write complete - HttpConn.cpp:490
+20250119 08:12:15.128725Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 08:12:15.128747Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 08:12:15.128788Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 08:12:15.129030Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 08:12:15.129227Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 08:12:15.130299Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 08:12:15.130935Z INFO  write complete - HttpConn.cpp:490
+20250119 08:12:36.156508Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 08:12:36.156576Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 08:12:36.156636Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 08:12:36.156932Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 08:12:36.157142Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 08:12:36.158376Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 08:12:36.159012Z INFO  write complete - HttpConn.cpp:490
+20250119 08:16:59.801249Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 08:16:59.801273Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 08:16:59.801312Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 08:16:59.801583Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 08:16:59.801768Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 08:16:59.803128Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 08:16:59.803574Z INFO  write complete - HttpConn.cpp:490
+20250119 08:17:01.128243Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 08:17:01.128284Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 08:17:01.128344Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 08:17:01.128698Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 08:17:01.128832Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 08:17:01.129826Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 08:17:01.130213Z INFO  write complete - HttpConn.cpp:490
+20250119 08:19:06.953619Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 08:19:06.953662Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 08:19:06.953719Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 08:19:06.954164Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 08:19:06.954534Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 08:19:06.957501Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 08:19:06.957987Z INFO  write complete - HttpConn.cpp:490
+20250119 08:21:02.852732Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 08:21:02.852770Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 08:21:02.852835Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 08:21:02.853271Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 08:21:02.853494Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 08:21:02.854600Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 08:21:02.855216Z INFO  write complete - HttpConn.cpp:490
+20250119 08:23:45.616447Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 08:23:45.616471Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 08:23:45.616525Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 08:23:45.616756Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 08:23:45.616986Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 08:23:45.618198Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 08:23:45.618657Z INFO  write complete - HttpConn.cpp:490
+20250119 08:27:00.079181Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 08:27:00.080269Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 08:27:00.080408Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 08:27:00.091041Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 08:27:00.091272Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 08:27:00.241667Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 08:27:00.242245Z INFO  write complete - HttpConn.cpp:490
+20250119 08:31:08.730221Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 08:31:08.730278Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 08:31:08.730343Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 08:31:08.730696Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 08:31:08.731160Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 08:31:08.732225Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 08:31:08.732860Z INFO  write complete - HttpConn.cpp:490
+20250119 08:32:10.213052Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 08:32:10.213095Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 08:32:10.213158Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 08:32:10.213595Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 08:32:10.213830Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 08:32:10.215045Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 08:32:10.215520Z INFO  write complete - HttpConn.cpp:490
+20250119 08:35:20.416784Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 08:35:20.416829Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 08:35:20.416893Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 08:35:20.417300Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 08:35:20.417616Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 08:35:20.418788Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 08:35:20.419374Z INFO  write complete - HttpConn.cpp:490
+20250119 08:35:34.074620Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 08:35:34.074657Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 08:35:34.074701Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 08:35:34.074907Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 08:35:34.075041Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 08:35:34.076138Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 08:35:34.076661Z INFO  write complete - HttpConn.cpp:490
+20250119 08:35:35.174869Z INFO  url: /api/dealfile?cmd=pv - HttpConn.cpp:233
+20250119 08:35:35.174908Z INFO  cmd =pv - ApiDealfile.cpp:469
+20250119 08:35:35.174967Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, md5:15743cb3bbaa0665144bd8907ad024a4, filename:技术路线.png - ApiDealfile.cpp:478
+20250119 08:35:35.175243Z INFO  执行: select pv, shared_status from user_file_list where user = 'qhrrr' and md5 = '15743cb3bbaa0665144bd8907ad024a4' and file_name = '技术路线.png' - ApiDealfile.cpp:399
+20250119 08:35:35.176164Z INFO  row_num: 1 - DBPool.cpp:332
+20250119 08:35:35.176252Z INFO  执行: update user_file_list set pv = 4 where user = 'qhrrr' and md5 = '15743cb3bbaa0665144bd8907ad024a4' and file_name = '技术路线.png' - ApiDealfile.cpp:416
+20250119 08:35:35.191233Z INFO  执行: update share_file_list set pv = 4 where user = 'qhrrr' and md5 = '15743cb3bbaa0665144bd8907ad024a4' and file_name = '技术路线.png' - ApiDealfile.cpp:427
+20250119 08:35:35.198087Z INFO  str_json: {"code":0}
+ - ApiDealfile.cpp:69
+20250119 08:35:35.198260Z INFO  write complete - HttpConn.cpp:490
+20250119 08:35:43.283106Z INFO  url: /api/dealfile?cmd=pv - HttpConn.cpp:233
+20250119 08:35:43.283148Z INFO  cmd =pv - ApiDealfile.cpp:469
+20250119 08:35:43.283209Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, md5:79c0ef2b39eb30657c98a2eef86579e9, filename:技术路线英文版.png - ApiDealfile.cpp:478
+20250119 08:35:43.283570Z INFO  执行: select pv, shared_status from user_file_list where user = 'qhrrr' and md5 = '79c0ef2b39eb30657c98a2eef86579e9' and file_name = '技术路线英文版.png' - ApiDealfile.cpp:399
+20250119 08:35:43.284643Z INFO  row_num: 1 - DBPool.cpp:332
+20250119 08:35:43.284690Z INFO  执行: update user_file_list set pv = 1 where user = 'qhrrr' and md5 = '79c0ef2b39eb30657c98a2eef86579e9' and file_name = '技术路线英文版.png' - ApiDealfile.cpp:416
+20250119 08:35:43.290795Z INFO  str_json: {"code":0}
+ - ApiDealfile.cpp:69
+20250119 08:35:43.290911Z INFO  write complete - HttpConn.cpp:490
+20250119 08:35:46.115276Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 08:35:46.115322Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 08:35:46.115373Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 08:35:46.115644Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 08:35:46.115936Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 08:35:46.118209Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 08:35:46.118797Z INFO  write complete - HttpConn.cpp:490
+20250119 08:35:56.845413Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 08:35:56.845462Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250119 08:35:56.845471Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 08:35:56.845760Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 10 - ApiSharefiles.cpp:147
+20250119 08:35:56.846781Z INFO  row_num: 4 - DBPool.cpp:332
+20250119 08:35:56.847090Z INFO  write complete - HttpConn.cpp:490
+20250119 08:36:35.813163Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 08:36:35.813216Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250119 08:36:35.813227Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 08:36:35.813718Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 10 - ApiSharefiles.cpp:147
+20250119 08:36:35.814823Z INFO  row_num: 4 - DBPool.cpp:332
+20250119 08:36:35.815355Z INFO  write complete - HttpConn.cpp:490
+20250119 08:36:36.973620Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 08:36:36.973662Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250119 08:36:36.973670Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 08:36:36.973977Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 10 - ApiSharefiles.cpp:147
+20250119 08:36:36.975273Z INFO  row_num: 4 - DBPool.cpp:332
+20250119 08:36:36.975601Z INFO  write complete - HttpConn.cpp:490
+20250119 08:36:37.976752Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 08:36:37.976799Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250119 08:36:37.976808Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 08:36:37.977173Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 10 - ApiSharefiles.cpp:147
+20250119 08:36:37.978325Z INFO  row_num: 4 - DBPool.cpp:332
+20250119 08:36:37.978665Z INFO  write complete - HttpConn.cpp:490
+20250119 08:36:38.754147Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 08:36:38.754194Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 08:36:38.754274Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 08:36:38.754738Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 08:36:38.755088Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 08:36:38.756469Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 08:36:38.756983Z INFO  write complete - HttpConn.cpp:490
+20250119 08:36:39.576892Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 08:36:39.576928Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250119 08:36:39.576935Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 08:36:39.577334Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 10 - ApiSharefiles.cpp:147
+20250119 08:36:39.579315Z INFO  row_num: 4 - DBPool.cpp:332
+20250119 08:36:39.579792Z INFO  write complete - HttpConn.cpp:490
+20250119 08:37:28.314979Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 08:37:28.315013Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250119 08:37:28.315021Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 08:37:28.315393Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 10 - ApiSharefiles.cpp:147
+20250119 08:37:28.316393Z INFO  row_num: 4 - DBPool.cpp:332
+20250119 08:37:28.316877Z INFO  write complete - HttpConn.cpp:490
+20250119 08:39:52.110954Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 08:39:52.110995Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250119 08:39:52.111013Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 08:39:52.111588Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 10 - ApiSharefiles.cpp:147
+20250119 08:39:52.112622Z INFO  row_num: 4 - DBPool.cpp:332
+20250119 08:39:52.113001Z INFO  write complete - HttpConn.cpp:490
+20250119 08:39:54.399090Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 08:39:54.399126Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250119 08:39:54.399135Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 08:39:54.399651Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 10 - ApiSharefiles.cpp:147
+20250119 08:39:54.401243Z INFO  row_num: 4 - DBPool.cpp:332
+20250119 08:39:54.401599Z INFO  write complete - HttpConn.cpp:490
+20250119 08:39:55.641956Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 08:39:55.642002Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250119 08:39:55.642013Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 08:39:55.642456Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 10 - ApiSharefiles.cpp:147
+20250119 08:39:55.643639Z INFO  row_num: 4 - DBPool.cpp:332
+20250119 08:39:55.644083Z INFO  write complete - HttpConn.cpp:490
+20250119 08:39:56.369317Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 08:39:56.369359Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250119 08:39:56.369367Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 08:39:56.370002Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 10 - ApiSharefiles.cpp:147
+20250119 08:39:56.370930Z INFO  row_num: 4 - DBPool.cpp:332
+20250119 08:39:56.371247Z INFO  write complete - HttpConn.cpp:490
+20250119 08:39:57.377208Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 08:39:57.377249Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250119 08:39:57.377258Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 08:39:57.377685Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 10 - ApiSharefiles.cpp:147
+20250119 08:39:57.378817Z INFO  row_num: 4 - DBPool.cpp:332
+20250119 08:39:57.379222Z INFO  write complete - HttpConn.cpp:490
+20250119 08:39:58.254092Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 08:39:58.254135Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250119 08:39:58.254144Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 08:39:58.254544Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 10 - ApiSharefiles.cpp:147
+20250119 08:39:58.255670Z INFO  row_num: 4 - DBPool.cpp:332
+20250119 08:39:58.255975Z INFO  write complete - HttpConn.cpp:490
+20250119 08:41:15.516755Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 08:41:15.516802Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 08:41:15.516860Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 08:41:15.517123Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 08:41:15.517473Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 08:41:15.518641Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 08:41:15.519150Z INFO  write complete - HttpConn.cpp:490
+20250119 08:41:19.869221Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 08:41:19.869262Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250119 08:41:19.869272Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 08:41:19.869612Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 10 - ApiSharefiles.cpp:147
+20250119 08:41:19.870579Z INFO  row_num: 4 - DBPool.cpp:332
+20250119 08:41:19.870910Z INFO  write complete - HttpConn.cpp:490
+20250119 08:42:46.132558Z INFO  url: /api/sharefiles?cmd=pvdesc - HttpConn.cpp:233
+20250119 08:42:46.132578Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250119 08:42:46.132588Z INFO  cmd = pvdesc - ApiSharefiles.cpp:381
+20250119 08:42:46.133677Z INFO  sql_num: 4, redis_num: 4 - ApiSharefiles.cpp:244
+20250119 08:42:46.138489Z INFO  write complete - HttpConn.cpp:490
+20250119 08:43:06.253966Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 08:43:06.254033Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250119 08:43:06.254044Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 08:43:06.254539Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 10 - ApiSharefiles.cpp:147
+20250119 08:43:06.255779Z INFO  row_num: 4 - DBPool.cpp:332
+20250119 08:43:06.256265Z INFO  write complete - HttpConn.cpp:490
+20250119 08:43:29.661891Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 08:43:29.661928Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250119 08:43:29.661935Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 08:43:29.662416Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 10 - ApiSharefiles.cpp:147
+20250119 08:43:29.663528Z INFO  row_num: 4 - DBPool.cpp:332
+20250119 08:43:29.663750Z INFO  write complete - HttpConn.cpp:490
+20250119 08:43:30.800022Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 08:43:30.800056Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250119 08:43:30.800065Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 08:43:30.800710Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 10 - ApiSharefiles.cpp:147
+20250119 08:43:30.802818Z INFO  row_num: 4 - DBPool.cpp:332
+20250119 08:43:30.803478Z INFO  write complete - HttpConn.cpp:490
+20250119 08:43:34.059017Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 08:43:34.059059Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250119 08:43:34.059071Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 08:43:34.059492Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 10 - ApiSharefiles.cpp:147
+20250119 08:43:34.060560Z INFO  row_num: 4 - DBPool.cpp:332
+20250119 08:43:34.060915Z INFO  write complete - HttpConn.cpp:490
+20250119 08:43:34.227795Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 08:43:34.227835Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250119 08:43:34.227844Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 08:43:34.228210Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 10 - ApiSharefiles.cpp:147
+20250119 08:43:34.229173Z INFO  row_num: 4 - DBPool.cpp:332
+20250119 08:43:34.229620Z INFO  write complete - HttpConn.cpp:490
+20250119 08:45:15.721162Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 08:45:15.721197Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250119 08:45:15.721205Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 08:45:15.721601Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 10 - ApiSharefiles.cpp:147
+20250119 08:45:15.722673Z INFO  row_num: 4 - DBPool.cpp:332
+20250119 08:45:15.722964Z INFO  write complete - HttpConn.cpp:490
+20250119 08:45:16.828292Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 08:45:16.828324Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250119 08:45:16.828337Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 08:45:16.828618Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 10 - ApiSharefiles.cpp:147
+20250119 08:45:16.829634Z INFO  row_num: 4 - DBPool.cpp:332
+20250119 08:45:16.830184Z INFO  write complete - HttpConn.cpp:490
+20250119 08:45:41.993663Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 08:45:41.993712Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250119 08:45:41.993722Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 08:45:41.994113Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 10 - ApiSharefiles.cpp:147
+20250119 08:45:41.995333Z INFO  row_num: 4 - DBPool.cpp:332
+20250119 08:45:41.995793Z INFO  write complete - HttpConn.cpp:490
+20250119 08:46:16.736031Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 08:46:16.736074Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250119 08:46:16.736082Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 08:46:16.736468Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 10 - ApiSharefiles.cpp:147
+20250119 08:46:16.737573Z INFO  row_num: 4 - DBPool.cpp:332
+20250119 08:46:16.737978Z INFO  write complete - HttpConn.cpp:490
+20250119 08:48:54.900713Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 08:48:54.900754Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250119 08:48:54.900762Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 08:48:54.901249Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 10 - ApiSharefiles.cpp:147
+20250119 08:48:54.902733Z INFO  row_num: 4 - DBPool.cpp:332
+20250119 08:48:54.903184Z INFO  write complete - HttpConn.cpp:490
+20250119 08:48:55.933831Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 08:48:55.933870Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250119 08:48:55.933878Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 08:48:55.934264Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 10 - ApiSharefiles.cpp:147
+20250119 08:48:55.935193Z INFO  row_num: 4 - DBPool.cpp:332
+20250119 08:48:55.935520Z INFO  write complete - HttpConn.cpp:490
+20250119 08:48:57.561996Z INFO  url: /api/dealsharefile?cmd=pv - HttpConn.cpp:233
+20250119 08:48:57.562059Z INFO  cmd: pv, user_name:qhrrr, md5:414efe76af464f2ff6e6573dc2d46f2c, filename:columns.svg - ApiDealsharefile.cpp:357
+20250119 08:48:57.562083Z INFO  执行: select pv from share_file_list where md5 = '414efe76af464f2ff6e6573dc2d46f2c' and file_name = 'columns.svg' - ApiDealsharefile.cpp:81
+20250119 08:48:57.563105Z INFO  row_num: 1 - DBPool.cpp:332
+20250119 08:48:57.563190Z INFO  执行: update share_file_list set pv = 1 where md5 = '414efe76af464f2ff6e6573dc2d46f2c' and file_name = 'columns.svg' - ApiDealsharefile.cpp:96
+20250119 08:48:57.572062Z INFO  write complete - HttpConn.cpp:490
+20250119 08:49:30.014594Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 08:49:30.014638Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 08:49:30.014697Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 08:49:30.015003Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 08:49:30.015178Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 08:49:30.016363Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 08:49:30.016978Z INFO  write complete - HttpConn.cpp:490
+20250119 08:53:37.924188Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 08:53:37.924225Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250119 08:53:37.924232Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 08:53:37.924631Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 10 - ApiSharefiles.cpp:147
+20250119 08:53:37.925807Z INFO  row_num: 4 - DBPool.cpp:332
+20250119 08:53:37.926196Z INFO  write complete - HttpConn.cpp:490
+20250119 08:53:38.866258Z INFO  url: /api/sharefiles?cmd=pvdesc - HttpConn.cpp:233
+20250119 08:53:38.866300Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250119 08:53:38.866308Z INFO  cmd = pvdesc - ApiSharefiles.cpp:381
+20250119 08:53:38.867055Z INFO  sql_num: 4, redis_num: 4 - ApiSharefiles.cpp:244
+20250119 08:53:38.867763Z INFO  write complete - HttpConn.cpp:490
+20250119 08:53:39.952319Z INFO  url: /api/dealsharefile?cmd=pv - HttpConn.cpp:233
+20250119 08:53:39.952408Z INFO  cmd: pv, user_name:qhrrr, md5:undefined, filename:undefined - ApiDealsharefile.cpp:357
+20250119 08:53:39.952434Z INFO  执行: select pv from share_file_list where md5 = 'undefined' and file_name = 'undefined' - ApiDealsharefile.cpp:81
+20250119 08:53:39.953634Z INFO  row_num: 0 - DBPool.cpp:332
+20250119 08:53:39.953706Z ERROR select pv from share_file_list where md5 = 'undefined' and file_name = 'undefined' 操作失败 - ApiDealsharefile.cpp:89
+20250119 08:53:39.953882Z INFO  write complete - HttpConn.cpp:490
+20250119 08:53:42.429628Z INFO  url: /api/dealsharefile?cmd=pv - HttpConn.cpp:233
+20250119 08:53:42.429720Z INFO  cmd: pv, user_name:qhrrr, md5:undefined, filename:undefined - ApiDealsharefile.cpp:357
+20250119 08:53:42.429752Z INFO  执行: select pv from share_file_list where md5 = 'undefined' and file_name = 'undefined' - ApiDealsharefile.cpp:81
+20250119 08:53:42.430626Z INFO  row_num: 0 - DBPool.cpp:332
+20250119 08:53:42.430662Z ERROR select pv from share_file_list where md5 = 'undefined' and file_name = 'undefined' 操作失败 - ApiDealsharefile.cpp:89
+20250119 08:53:42.430807Z INFO  write complete - HttpConn.cpp:490
+20250119 08:55:14.097430Z INFO  url: /api/sharefiles?cmd=pvdesc - HttpConn.cpp:233
+20250119 08:55:14.097475Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250119 08:55:14.097483Z INFO  cmd = pvdesc - ApiSharefiles.cpp:381
+20250119 08:55:14.098095Z INFO  sql_num: 4, redis_num: 4 - ApiSharefiles.cpp:244
+20250119 08:55:14.098804Z INFO  write complete - HttpConn.cpp:490
+20250119 08:55:15.390545Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 08:55:15.390614Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250119 08:55:15.390622Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 08:55:15.391043Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 10 - ApiSharefiles.cpp:147
+20250119 08:55:15.392198Z INFO  row_num: 4 - DBPool.cpp:332
+20250119 08:55:15.392541Z INFO  write complete - HttpConn.cpp:490
+20250119 08:55:16.319400Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 08:55:16.319479Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 08:55:16.319578Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 08:55:16.320076Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 08:55:16.320427Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 08:55:16.321618Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 08:55:16.322058Z INFO  write complete - HttpConn.cpp:490
+20250119 08:55:17.201150Z INFO  url: /api/sharefiles?cmd=pvdesc - HttpConn.cpp:233
+20250119 08:55:17.201187Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250119 08:55:17.201195Z INFO  cmd = pvdesc - ApiSharefiles.cpp:381
+20250119 08:55:17.201530Z INFO  sql_num: 4, redis_num: 4 - ApiSharefiles.cpp:244
+20250119 08:55:17.202383Z INFO  write complete - HttpConn.cpp:490
+20250119 08:55:17.637539Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 08:55:17.637601Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250119 08:55:17.637612Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 08:55:17.637900Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 10 - ApiSharefiles.cpp:147
+20250119 08:55:17.638982Z INFO  row_num: 4 - DBPool.cpp:332
+20250119 08:55:17.639333Z INFO  write complete - HttpConn.cpp:490
+20250119 08:55:20.507128Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250119 08:55:20.507170Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250119 08:55:20.507233Z INFO  user_name:qhrrr, token:nwlrbbmqbhcdarzowkkyhiddqscdxrjm, start:0, count:10 - ApiMyfiles.cpp:340
+20250119 08:55:20.507485Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250119 08:55:20.507722Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250119 08:55:20.509129Z INFO  row_num: 10 - DBPool.cpp:332
+20250119 08:55:20.509594Z INFO  write complete - HttpConn.cpp:490
+20250119 08:57:01.176282Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 08:57:01.176317Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250119 08:57:01.176324Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 08:57:01.176729Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 10 - ApiSharefiles.cpp:147
+20250119 08:57:01.177683Z INFO  row_num: 4 - DBPool.cpp:332
+20250119 08:57:01.178071Z INFO  write complete - HttpConn.cpp:490
+20250119 08:57:03.532852Z INFO  url: /api/dealsharefile?cmd=pv - HttpConn.cpp:233
+20250119 08:57:03.533048Z INFO  cmd: pv, user_name:qhrrr, md5:f56f8fa8b554809c95812214b607a491, filename:copy.svg - ApiDealsharefile.cpp:357
+20250119 08:57:03.533072Z INFO  执行: select pv from share_file_list where md5 = 'f56f8fa8b554809c95812214b607a491' and file_name = 'copy.svg' - ApiDealsharefile.cpp:81
+20250119 08:57:03.534100Z INFO  row_num: 1 - DBPool.cpp:332
+20250119 08:57:03.534143Z INFO  执行: update share_file_list set pv = 1 where md5 = 'f56f8fa8b554809c95812214b607a491' and file_name = 'copy.svg' - ApiDealsharefile.cpp:96
+20250119 08:57:03.539917Z INFO  write complete - HttpConn.cpp:490
+20250119 08:57:05.272808Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 08:57:05.272850Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250119 08:57:05.272860Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 08:57:05.273453Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 10 - ApiSharefiles.cpp:147
+20250119 08:57:05.274758Z INFO  row_num: 4 - DBPool.cpp:332
+20250119 08:57:05.275206Z INFO  write complete - HttpConn.cpp:490
+20250119 13:37:19.317241Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250119 13:37:19.317265Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250119 13:37:19.317282Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250119 13:37:19.317700Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 10 - ApiSharefiles.cpp:147
+20250119 13:37:19.318751Z INFO  row_num: 4 - DBPool.cpp:332
+20250119 13:37:19.319045Z INFO  write complete - HttpConn.cpp:490
+20250120 05:43:28.399286Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250120 05:43:28.399317Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250120 05:43:28.399358Z ERROR user null
+ - ApiMyfiles.cpp:134
+20250120 05:43:28.399368Z INFO  user_name:, token:, start:0, count:0 - ApiMyfiles.cpp:340
+20250120 05:43:28.399372Z ERROR decodeFileslistJson failed - ApiMyfiles.cpp:362
+20250120 05:43:28.399416Z INFO  write complete - HttpConn.cpp:490
+20250120 06:31:13.845509Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250120 06:31:13.845563Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250120 06:31:13.845623Z ERROR parse reg json failed  - ApiMyfiles.cpp:126
+20250120 06:31:13.845630Z INFO  user_name:, token:, start:0, count:0 - ApiMyfiles.cpp:340
+20250120 06:31:13.845635Z ERROR decodeFileslistJson failed - ApiMyfiles.cpp:362
+20250120 06:31:13.845856Z INFO  write complete - HttpConn.cpp:490
+20250120 06:31:14.959605Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250120 06:31:14.959644Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250120 06:31:14.959731Z ERROR user null
+ - ApiMyfiles.cpp:134
+20250120 06:31:14.959746Z INFO  user_name:, token:, start:0, count:0 - ApiMyfiles.cpp:340
+20250120 06:31:14.959761Z ERROR decodeFileslistJson failed - ApiMyfiles.cpp:362
+20250120 06:31:14.960475Z INFO  write complete - HttpConn.cpp:490
+20250120 06:31:23.030055Z INFO  url: /api/login - HttpConn.cpp:233
+20250120 06:31:23.033879Z INFO  into - HttpConn.cpp:401
+20250120 06:31:23.037171Z INFO  into - HttpConn.cpp:496
+20250120 06:31:23.131213Z INFO  conn_uuid: 167, pConn: 0x5647EADF2440 - HttpConn.cpp:516
+20250120 06:31:23.131260Z INFO  send: HTTP/1.1 200 OK
+Connection:close
+Content-Length:0
+Content-Type:application/json;charset=utf-8
+
+ - HttpConn.cpp:518
+20250120 06:31:23.131349Z INFO  write complete - HttpConn.cpp:490
+20250120 06:31:23.333785Z INFO  url: /api/login - HttpConn.cpp:233
+20250120 06:31:23.333886Z INFO  into - HttpConn.cpp:401
+20250120 06:31:23.333914Z INFO  into - HttpConn.cpp:496
+20250120 06:31:23.433986Z INFO  conn_uuid: 168, pConn: 0x5647EADF2440 - HttpConn.cpp:516
+20250120 06:31:23.434016Z INFO  send: HTTP/1.1 200 OK
+Connection:close
+Content-Length:0
+Content-Type:application/json;charset=utf-8
+
+ - HttpConn.cpp:518
+20250120 06:31:23.434131Z INFO  write complete - HttpConn.cpp:490
+20250120 06:31:23.491916Z INFO  url: /api/login - HttpConn.cpp:233
+20250120 06:31:23.492013Z INFO  into - HttpConn.cpp:401
+20250120 06:31:23.718499Z INFO  row_num: 1 - DBPool.cpp:332
+20250120 06:31:23.718545Z INFO  mysql-pwd: e10adc3949ba59abbe56e057f20f883e, user-pwd: e10adc3949ba59abbe56e057f20f883e - ApiLogin.cpp:95
+20250120 06:31:23.719726Z INFO  执行: select count(*) from user_file_list where user='qhrrr' - ApiCommon.cpp:127
+20250120 06:31:23.726130Z INFO  row_num: 1 - DBPool.cpp:332
+20250120 06:31:23.726190Z INFO  count: 11 - ApiCommon.cpp:133
+20250120 06:31:23.727212Z INFO  FILE_USER_COUNT: 11 - ApiLogin.cpp:168
+20250120 06:31:23.727240Z INFO  执行: select count(*) from share_picture_list where user='qhrrr' - ApiCommon.cpp:161
+20250120 06:31:23.729300Z INFO  row_num: 1 - DBPool.cpp:332
+20250120 06:31:23.729342Z INFO  count: 0 - ApiCommon.cpp:167
+20250120 06:31:23.729610Z INFO  SHARE_PIC_COUNT: 0 - ApiLogin.cpp:183
+20250120 06:31:23.729697Z INFO  into - HttpConn.cpp:496
+20250120 06:31:23.792588Z INFO  conn_uuid: 169, pConn: 0x5647EADF2440 - HttpConn.cpp:516
+20250120 06:31:23.792629Z INFO  send: HTTP/1.1 200 OK
+Connection:close
+Content-Length:54
+Content-Type:application/json;charset=utf-8
+
+{"code":0,"token":"owfrxsjybldbefsarcbynecdyggxxpkl"}
+ - HttpConn.cpp:518
+20250120 06:31:23.792909Z INFO  write complete - HttpConn.cpp:490
+20250120 06:31:24.478699Z INFO  url: /api/login - HttpConn.cpp:233
+20250120 06:31:24.479180Z INFO  into - HttpConn.cpp:401
+20250120 06:31:24.482479Z INFO  row_num: 1 - DBPool.cpp:332
+20250120 06:31:24.482527Z INFO  mysql-pwd: e10adc3949ba59abbe56e057f20f883e, user-pwd: e10adc3949ba59abbe56e057f20f883e - ApiLogin.cpp:95
+20250120 06:31:24.483530Z INFO  执行: select count(*) from user_file_list where user='qhrrr' - ApiCommon.cpp:127
+20250120 06:31:24.486359Z INFO  row_num: 1 - DBPool.cpp:332
+20250120 06:31:24.486406Z INFO  count: 11 - ApiCommon.cpp:133
+20250120 06:31:24.486732Z INFO  FILE_USER_COUNT: 11 - ApiLogin.cpp:168
+20250120 06:31:24.486752Z INFO  执行: select count(*) from share_picture_list where user='qhrrr' - ApiCommon.cpp:161
+20250120 06:31:24.487419Z INFO  row_num: 1 - DBPool.cpp:332
+20250120 06:31:24.487479Z INFO  count: 0 - ApiCommon.cpp:167
+20250120 06:31:24.487732Z INFO  SHARE_PIC_COUNT: 0 - ApiLogin.cpp:183
+20250120 06:31:24.487810Z INFO  into - HttpConn.cpp:496
+20250120 06:31:24.579244Z INFO  conn_uuid: 170, pConn: 0x5647EADF2440 - HttpConn.cpp:516
+20250120 06:31:24.579278Z INFO  send: HTTP/1.1 200 OK
+Connection:close
+Content-Length:54
+Content-Type:application/json;charset=utf-8
+
+{"code":0,"token":"orellnmpapqfwkhopkmcoqhnwnkuewhs"}
+ - HttpConn.cpp:518
+20250120 06:31:24.579597Z INFO  write complete - HttpConn.cpp:490
+20250120 06:31:26.717825Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250120 06:31:26.717848Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250120 06:31:26.717886Z INFO  user_name:qhrrr, token:orellnmpapqfwkhopkmcoqhnwnkuewhs, start:0, count:10 - ApiMyfiles.cpp:340
+20250120 06:31:26.718077Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250120 06:31:26.718180Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250120 06:31:26.721501Z INFO  row_num: 10 - DBPool.cpp:332
+20250120 06:31:26.721920Z INFO  write complete - HttpConn.cpp:490
+20250120 06:31:35.122684Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250120 06:31:35.122706Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250120 06:31:35.122750Z INFO  user_name:qhrrr, token:orellnmpapqfwkhopkmcoqhnwnkuewhs, start:0, count:10 - ApiMyfiles.cpp:340
+20250120 06:31:35.123386Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250120 06:31:35.124775Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250120 06:31:35.131648Z INFO  row_num: 10 - DBPool.cpp:332
+20250120 06:31:35.133475Z INFO  write complete - HttpConn.cpp:490
+20250120 06:31:35.668082Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250120 06:31:35.668102Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250120 06:31:35.668114Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250120 06:31:35.668510Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 10 - ApiSharefiles.cpp:147
+20250120 06:31:35.669779Z INFO  row_num: 4 - DBPool.cpp:332
+20250120 06:31:35.670198Z INFO  write complete - HttpConn.cpp:490
+20250120 06:31:39.516216Z INFO  url: /api/dealfile?cmd=pv - HttpConn.cpp:233
+20250120 06:31:39.516242Z INFO  cmd =pv - ApiDealfile.cpp:469
+20250120 06:31:39.516263Z ERROR parse reg json failed  - ApiDealfile.cpp:27
+20250120 06:31:39.516291Z INFO  str_json: {"code":1}
+ - ApiDealfile.cpp:69
+20250120 06:31:39.516354Z INFO  write complete - HttpConn.cpp:490
+20250120 06:31:39.875044Z INFO  url: /api/dealfile?cmd=pv - HttpConn.cpp:233
+20250120 06:31:39.875066Z INFO  cmd =pv - ApiDealfile.cpp:469
+20250120 06:31:39.875105Z INFO  user_name:qhrrr, token:orellnmpapqfwkhopkmcoqhnwnkuewhs, md5:414efe76af464f2ff6e6573dc2d46f2c, filename:columns.svg - ApiDealfile.cpp:478
+20250120 06:31:39.875561Z INFO  执行: select pv, shared_status from user_file_list where user = 'qhrrr' and md5 = '414efe76af464f2ff6e6573dc2d46f2c' and file_name = 'columns.svg' - ApiDealfile.cpp:399
+20250120 06:31:39.876818Z INFO  row_num: 1 - DBPool.cpp:332
+20250120 06:31:39.876897Z INFO  执行: update user_file_list set pv = 2 where user = 'qhrrr' and md5 = '414efe76af464f2ff6e6573dc2d46f2c' and file_name = 'columns.svg' - ApiDealfile.cpp:416
+20250120 06:31:39.890661Z INFO  执行: update share_file_list set pv = 2 where user = 'qhrrr' and md5 = '414efe76af464f2ff6e6573dc2d46f2c' and file_name = 'columns.svg' - ApiDealfile.cpp:427
+20250120 06:31:39.896157Z INFO  str_json: {"code":0}
+ - ApiDealfile.cpp:69
+20250120 06:31:39.896234Z INFO  write complete - HttpConn.cpp:490
+20250120 06:31:49.476101Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250120 06:31:49.476143Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250120 06:31:49.476211Z INFO  user_name:qhrrr, token:orellnmpapqfwkhopkmcoqhnwnkuewhs, start:10, count:10 - ApiMyfiles.cpp:340
+20250120 06:31:49.477618Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250120 06:31:49.480364Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 10, 10 - ApiMyfiles.cpp:237
+20250120 06:31:49.484119Z INFO  row_num: 1 - DBPool.cpp:332
+20250120 06:31:49.484382Z INFO  write complete - HttpConn.cpp:490
+20250203 14:18:37.501955Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250203 14:18:37.502000Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250203 14:18:37.502055Z ERROR user null
+ - ApiMyfiles.cpp:134
+20250203 14:18:37.502076Z INFO  user_name:, token:, start:0, count:0 - ApiMyfiles.cpp:340
+20250203 14:18:37.502080Z ERROR decodeFileslistJson failed - ApiMyfiles.cpp:362
+20250203 14:18:37.502168Z INFO  write complete - HttpConn.cpp:490
+20250206 01:11:29.200899Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250206 01:11:29.205068Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250206 01:11:29.215100Z ERROR user null
+ - ApiMyfiles.cpp:134
+20250206 01:11:29.215145Z INFO  user_name:, token:, start:0, count:0 - ApiMyfiles.cpp:340
+20250206 01:11:29.215152Z ERROR decodeFileslistJson failed - ApiMyfiles.cpp:362
+20250206 01:11:29.216789Z INFO  write complete - HttpConn.cpp:490
+20250206 01:11:34.019646Z INFO  url: /api/login - HttpConn.cpp:233
+20250206 01:11:34.021987Z INFO  into - HttpConn.cpp:401
+20250206 01:11:34.321519Z INFO  row_num: 1 - DBPool.cpp:332
+20250206 01:11:34.321596Z INFO  mysql-pwd: e10adc3949ba59abbe56e057f20f883e, user-pwd: e10adc3949ba59abbe56e057f20f883e - ApiLogin.cpp:95
+20250206 01:11:34.331221Z INFO  执行: select count(*) from user_file_list where user='qhrrr' - ApiCommon.cpp:127
+20250206 01:11:34.334557Z INFO  row_num: 1 - DBPool.cpp:332
+20250206 01:11:34.334619Z INFO  count: 11 - ApiCommon.cpp:133
+20250206 01:11:34.334859Z INFO  FILE_USER_COUNT: 11 - ApiLogin.cpp:168
+20250206 01:11:34.334875Z INFO  执行: select count(*) from share_picture_list where user='qhrrr' - ApiCommon.cpp:161
+20250206 01:11:34.337010Z INFO  row_num: 1 - DBPool.cpp:332
+20250206 01:11:34.337075Z INFO  count: 0 - ApiCommon.cpp:167
+20250206 01:11:34.337254Z INFO  SHARE_PIC_COUNT: 0 - ApiLogin.cpp:183
+20250206 01:11:34.337313Z INFO  into - HttpConn.cpp:496
+20250206 01:11:34.422456Z INFO  conn_uuid: 179, pConn: 0x5647EADF2440 - HttpConn.cpp:516
+20250206 01:11:34.422515Z INFO  send: HTTP/1.1 200 OK
+Connection:close
+Content-Length:54
+Content-Type:application/json;charset=utf-8
+
+{"code":0,"token":"qmgbbuqcljjivswmdkqtbxixmvtrrblj"}
+ - HttpConn.cpp:518
+20250206 01:11:34.422608Z INFO  write complete - HttpConn.cpp:490
+20250206 01:11:35.177043Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250206 01:11:35.177103Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250206 01:11:35.177999Z INFO  user_name:qhrrr, token:qmgbbuqcljjivswmdkqtbxixmvtrrblj, start:0, count:10 - ApiMyfiles.cpp:340
+20250206 01:11:35.179127Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250206 01:11:35.181789Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250206 01:11:35.206236Z INFO  row_num: 10 - DBPool.cpp:332
+20250206 01:11:35.215270Z INFO  write complete - HttpConn.cpp:490
+20250206 01:11:40.025261Z INFO  url: /api/dealfile?cmd=pv - HttpConn.cpp:233
+20250206 01:11:40.025318Z INFO  cmd =pv - ApiDealfile.cpp:469
+20250206 01:11:40.025386Z INFO  user_name:qhrrr, token:qmgbbuqcljjivswmdkqtbxixmvtrrblj, md5:021925ad1040d56b6631b94e962bdf62, filename:bluetooth.svg - ApiDealfile.cpp:478
+20250206 01:11:40.025695Z INFO  执行: select pv, shared_status from user_file_list where user = 'qhrrr' and md5 = '021925ad1040d56b6631b94e962bdf62' and file_name = 'bluetooth.svg' - ApiDealfile.cpp:399
+20250206 01:11:40.026935Z INFO  row_num: 1 - DBPool.cpp:332
+20250206 01:11:40.027053Z INFO  执行: update user_file_list set pv = 1 where user = 'qhrrr' and md5 = '021925ad1040d56b6631b94e962bdf62' and file_name = 'bluetooth.svg' - ApiDealfile.cpp:416
+20250206 01:11:40.050019Z INFO  str_json: {"code":0}
+ - ApiDealfile.cpp:69
+20250206 01:11:40.050132Z INFO  write complete - HttpConn.cpp:490
+20250206 01:11:42.343428Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250206 01:11:42.343469Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250206 01:11:42.343480Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250206 01:11:42.344349Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 10 - ApiSharefiles.cpp:147
+20250206 01:11:42.346464Z INFO  row_num: 4 - DBPool.cpp:332
+20250206 01:11:42.346863Z INFO  write complete - HttpConn.cpp:490
+20250206 01:11:50.934699Z INFO  url: /api/myfiles?cmd=normal - HttpConn.cpp:233
+20250206 01:11:50.934725Z INFO  url: /api/myfiles?cmd=normal, cmd = normal - ApiMyfiles.cpp:293
+20250206 01:11:50.934789Z INFO  user_name:qhrrr, token:qmgbbuqcljjivswmdkqtbxixmvtrrblj, start:0, count:10 - ApiMyfiles.cpp:340
+20250206 01:11:50.935015Z INFO  getUserFileList into - ApiMyfiles.cpp:175
+20250206 01:11:50.935107Z INFO  执行: select user_file_list.*, file_info.url, file_info.size,  file_info.type from file_info, user_file_list where user = 'qhrrr'             and file_info.md5 = user_file_list.md5 limit 0, 10 - ApiMyfiles.cpp:237
+20250206 01:11:50.936650Z INFO  row_num: 10 - DBPool.cpp:332
+20250206 01:11:50.937327Z INFO  write complete - HttpConn.cpp:490
+20250206 01:12:06.147038Z INFO  url: /api/sharefiles?cmd=pvdesc - HttpConn.cpp:233
+20250206 01:12:06.147084Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250206 01:12:06.147096Z INFO  cmd = pvdesc - ApiSharefiles.cpp:381
+20250206 01:12:06.148619Z INFO  sql_num: 4, redis_num: 4 - ApiSharefiles.cpp:244
+20250206 01:12:06.150247Z INFO  write complete - HttpConn.cpp:490
+20250206 01:12:07.970747Z INFO  url: /api/sharefiles?cmd=normal - HttpConn.cpp:233
+20250206 01:12:07.970782Z INFO   post_data: {"count":10,"start":0} - ApiSharefiles.cpp:377
+20250206 01:12:07.970791Z INFO  cmd = normal - ApiSharefiles.cpp:381
+20250206 01:12:07.971286Z INFO  执行: select share_file_list.*, file_info.url, file_info.size, file_info.type from file_info,         share_file_list where file_info.md5 = share_file_list.md5 limit 0, 10 - ApiSharefiles.cpp:147
+20250206 01:12:07.973803Z INFO  row_num: 4 - DBPool.cpp:332
+20250206 01:12:07.974205Z INFO  write complete - HttpConn.cpp:490
