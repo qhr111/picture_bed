@@ -1,0 +1,88 @@
+FROM docker.1ms.run/library/debian:bullseye-slim
+
+WORKDIR /app
+
+# # 安装必要运行时依赖（无编译器）
+# RUN apt-get update && apt-get install -y \
+#     # libfastcommon1 \
+#     libpcre3 \
+#     libssl1.1 \
+#     zlib1g \
+#     && rm -rf /var/lib/apt/lists/*
+
+    # 安装构建工具和依赖
+# 使用阿里云源并安装依赖
+RUN sed -i 's|http://deb.debian.org|http://mirrors.aliyun.com|g' /etc/apt/sources.list && \
+    sed -i 's|http://security.debian.org|http://mirrors.aliyun.com/debian-security|g' /etc/apt/sources.list && \
+    apt-get update && apt-get install -y \
+    gcc \
+    g++ \
+    build-essential \
+    libtool \
+    make \
+    wget \
+    lsof \
+    # gcc \
+    # libc6-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY lib/zlib /app/zlib
+RUN cd /app/zlib && \
+    # git checkout v1.2.11 && \
+    ./configure && \
+    make && make install
+
+# 下载并编译 PCRE
+WORKDIR /tmp
+RUN wget -O pcre-8.44.tar.gz https://sourceforge.net/projects/pcre/files/pcre/8.44/pcre-8.44.tar.gz/download && \
+    tar -xzf pcre-8.44.tar.gz && \
+    cd pcre-8.44 && \
+    ./configure --prefix=/usr && \
+    make && \
+    make install && \
+    cd .. && rm -rf pcre-8.44 pcre-8.44.tar.gz
+
+# COPY lib/pcre /app/pcre
+# RUN cd /app/pcre && \
+#     # git checkout pcre-8.44 && \
+#     ./configure && \
+#     make && make install
+
+# COPY lib/openssl /app/openssl
+WORKDIR /tmp
+RUN wget https://www.openssl.org/source/openssl-1.1.1g.tar.gz && \
+    tar -zxvf openssl-1.1.1g.tar.gz && \
+    cd openssl-1.1.1g && \
+    # git checkout OpenSSL_1_1_1k && \
+    ./config && \
+    make && make install
+
+
+# 克隆并编译安装 libfastcommon
+COPY lib/libfastcommon /app/libfastcommon
+RUN cd /app/libfastcommon && \
+    # git checkout V1.0.50 && \
+    ./make.sh && ./make.sh install
+
+COPY lib/fastdfs /app/fastdfs
+RUN cd /app/fastdfs && \
+    # git checkout V6.07 && \
+    ./make.sh && ./make.sh install
+
+# 清理构建依赖（可选，减小体积）
+RUN apt-get autoremove -y && apt-get clean
+
+
+# 复制 nginx 和 fastdfs 执行文件及配置
+COPY nginx /usr/local/nginx
+COPY fdfs/bin /usr/bin/
+# COPY lib /lib/
+# RUN echo "/usr/lib" > /etc/ld.so.conf.d/fastdfs.conf && ldconfig
+COPY fdfs/conf /etc/fdfs
+COPY fdfs/data_and_log /fastdfs_data_and_log
+
+# 启动脚本（可选）
+COPY start_fdfs_nginx.sh /app/start_fdfs_nginx.sh
+RUN chmod +x /app/start_fdfs_nginx.sh
+
+CMD ["/app/start_fdfs_nginx.sh"]

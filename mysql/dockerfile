@@ -1,0 +1,14 @@
+FROM docker.1ms.run/library/mysql:8.0
+
+# 设置 root 密码和数据库初始化参数
+ENV MYSQL_ROOT_PASSWORD=123456
+ENV MYSQL_DATABASE=tuchuang
+ENV MYSQL_USER=qhr
+ENV MYSQL_PASSWORD=123456
+
+# 拷贝初始化 SQL 文件（支持多个）
+COPY 0voice_tuchuang.sql /docker-entrypoint-initdb.d/
+# 可选：拷贝自定义 my.cnf 配置文件
+# COPY my.cnf /etc/mysql/conf.d/
+
+EXPOSE 3306

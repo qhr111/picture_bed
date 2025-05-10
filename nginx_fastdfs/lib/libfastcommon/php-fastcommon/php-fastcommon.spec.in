@@ -1,0 +1,52 @@
+%define php_inidir %(php --ini | head -n 1 | awk -F ':' '{print $2;}' | sed 's/ //g')
+%define php_extdir %(php-config --extension-dir 2>/dev/null)
+Name: php-fastcommon
+Version: 1.0.12
+Release: 1%{?dist}
+Summary: The php extension for libfastcommon
+License: GPL
+Group: Arch/Tech
+URL: 	https://github.com/happyfish100/libfastcommon
+Source: https://github.com/happyfish100/libfastcommon/%{name}-%{version}.tar.gz
+
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n) 
+
+BuildRequires: libfastcommon-devel >= 1.0.35
+Requires: libfastcommon >= 1.0.35
+
+%description
+This package provides the php extension for libfastcommon
+
+%prep
+%setup -q
+
+%build
+phpize
+%configure
+make
+
+%install
+rm -rf %{buildroot}
+
+mkdir -p %{buildroot}%{php_extdir}
+mkdir -p %{buildroot}%{php_inidir}/php.d
+cp -f .libs/fastcommon.so  %{buildroot}%{php_extdir}
+cp -f fastcommon.ini %{buildroot}%{php_inidir}/php.d/fastcommon.ini
+
+%post
+
+%preun
+
+%postun
+
+%clean
+#rm -rf %{buildroot}
+
+%files
+%defattr(-,root,root,-)
+%{php_extdir}/*
+%{php_inidir}/php.d/*
+
+%changelog
+* Wed Jan 14 2015  Yu Qing<yuqing@yongche.com>
+- first RPM release (1.0)

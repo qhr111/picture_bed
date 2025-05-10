@@ -1,0 +1,118 @@
+version: '3.8'
+
+services:
+  tc_mysql:
+    build:
+      context: ./mysql
+      dockerfile: dockerfile
+    container_name: tc_mysql_light
+    networks:
+      my_net:
+        ipv4_address: 172.30.0.2
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  fastdfs_nginx:
+    build:
+      context: ./nginx_fastdfs
+      dockerfile: dockerfile
+    container_name: tc_fastdfs_nginx_light
+    networks:
+      my_net:
+        ipv4_address: 172.30.0.3
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+      - "443:443"
+    command: ["/app/start_fdfs_nginx.sh"]  # 关键修改：直接调用脚本
+    volumes:
+      # 挂载脚本（如果镜像中没有内置）
+      - ./nginx_fastdfs/start_fdfs_nginx.sh:/app/start_fdfs_nginx.sh:ro
+      - ./nginx_fastdfs/nginx/log:/usr/local/nginx/log
+      - ./nginx_fastdfs/nginx/conf:/usr/local/nginx/conf
+      - ./tmp:/root
+      - ./nginx_fastdfs/nginx:/usr/local/nginx/
+      - ./nginx_fastdfs/fdfs/conf:/etc/fdfs/
+      - ./nginx_fastdfs/fdfs/data_and_log:/fastdfs_data_and_log/
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+  tc_server:
+    build:
+      context: ./server
+      dockerfile: dockerfilet
+    container_name: tc_server_light
+    networks:
+      my_net:
+        ipv4_address: 172.30.0.4
+    restart: unless-stopped
+    ports:
+      - "8081:8080"
+    # command: /usr/local/bin/init_server.sh  # 修改启动命令
+    command: ["/usr/local/bin/start_server.sh"]  # 保持容器运行，然后手动进入
+    tty: true  # 分配伪终端（必须）
+    stdin_open: true  # 保持标准输入打开（必须）
+    volumes:
+      # - ./init_server.sh:/usr/local/bin/init_server.sh:ro
+      - ./tmp:/root
+      - ./server:/server
+      - ./nginx_fastdfs/fdfs/conf:/etc/fdfs/
+      - ./server/start_server.sh:/usr/local/bin/start_server.sh:ro
+      # - ./server:/tc/tc-src/buile_new/
+    depends_on:
+      tc_mysql:
+        condition: service_healthy
+      fastdfs_nginx:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8081/"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+
+
+
+
+networks:
+  my_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.30.0.0/16
+          gateway: 172.30.0.1
+
+# # 将配置文件挂载到容器外
+# volumes:
+#   - ./configs/tc_http_server.conf:/tc/tc-src/buile_new/tc_http_server.conf:ro
+
+# # 增强健康检查
+#   tc_mysql:
+#     healthcheck:
+#       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+#       interval: 5s
+#       timeout: 3s
+#       retries: 5
+
+#   fastdfs_nginx:
+#     healthcheck:
+#       test: ["CMD", "curl", "-f", "http://localhost/health"]
+#       interval: 10s
+#       timeout: 3s
+#       retries: 3
+
+#   tc_server:
+#     depends_on:
+#       tc_mysql:
+#         condition: service_healthy
+#       fastdfs_nginx:
+#         condition: service_healthy

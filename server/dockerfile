@@ -1,0 +1,44 @@
+FROM docker.1ms.run/library/ubuntu:20.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+# 安装所需的最小依赖（MySQL）
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    mysql-client \
+    libmysqlclient-dev \
+    ca-certificates \
+    git \
+    gcc \
+    g++ \
+    build-essential \
+    libtool \
+    make \
+    wget \
+    lsof \
+    && rm -rf /var/lib/apt/lists/*
+
+# (redis)
+RUN git clone https://github.com/redis/redis.git && \
+    cd redis && \
+    git checkout 6.2.3 && \
+    make -j4 && \
+    make install && \
+    cd ./deps/hiredis && \
+    make && \
+    make install && \
+    cd ../.. && \
+    rm -rf redis
+
+# 创建工作目录
+WORKDIR /app
+
+# 拷贝你的 server 可执行文件和配置
+COPY tc_http_server .
+COPY tc_http_server.conf .
+
+# 启动脚本（可选）
+COPY start_server.sh .
+RUN chmod +x tc_http_server start_server.sh
+
+# 默认启动命令
+CMD ["./start_server.sh"]

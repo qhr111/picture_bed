@@ -1,0 +1,365 @@
+
+Version 1.50  2021-05-11
+  * add function is_digital_string
+  * add function fc_server_load_from_ini_context
+  * set thread name as necessary
+  * add macro fc_fallocate
+
+Version 1.49  2021-04-17
+  * add macros: FC_ABS and FC_NEGATIVE
+  * uniq_skiplist.c: add uniq_skiplist_pair struct and init function
+  * add functions: fc_mkdirs and str_replace
+  * add FilenameString type and macro
+  * add functions: fc_string_case_compare, fc_string_case_equal etc.
+  * add function: fc_check_filename_ex
+  * add functions: fc_queue_push_queue_to_tail etc.
+  * add file locked_list.h
+  * parse_bytes function more graceful
+
+Version 1.48  2021-02-01
+  * fast_buffer.[hc]: add function fast_buffer_append_binary
+  * fc_check_mkdir_ex return 0 when mkdir with errno EEXIST
+  * add function common_blocked_queue_timedpop
+  * add function fc_queue_timedpop
+
+Version 1.47  2021-01-20
+  * fc_atomic.h: add FC_ATOMIC_GET and FC_ATOMIC_SET etc.
+  * fast_mblock.[hc]: support wait with element limit
+
+Version 1.46  2020-12-29
+  * add function get_time_item_from_conf_ex
+  * INI_FIND_ITEM just break instead of return
+
+Version 1.45  2020-12-24
+  * add function uniq_skiplist_find_node_ex
+  * use readdir instead of readdir_r in Linux
+
+Version 1.44  2020-12-06
+  * add test file src/tests/test_pthread_lock.c
+  * add uniq_skiplist.[hc]
+  * add function split_string_ex
+  * fast_mblock.[hc]: add init_args for init_func
+  * struct fast_task_info add field: nio_stage
+  * add function fc_memrchr
+  * add function is_network_error
+  * add function fast_mpool_log_stats
+  * add files: server_id_func.[hc]
+  * common_blocked_queue support pop all nodes
+  * shared_func.[hc]: add functions fc_floor_prime and fc_ceil_prime
+  * fast_mpool.[hc]: change function fast_mpool_strdup
+  * fast_allocator.[hc]: add function fast_allocator_strdup
+  * shared_func.[hc]: add function getFileSize
+  * char_converter.[hc]: add function fast_char_unescape
+  * struct fast_task_info add ctx pointer for libserverframe nio
+  * struct thread_data add waiting_queue for Linux eventfd notify
+  * struct fast_task_info add canceled field for complicated thread model
+  * nio_thread_data support thread notify
+  * pthread_func.[hc] add functions: create_work_threads_ex and fc_create_thread
+  * sched_add_entries use temp ScheduleArray for rare case
+  * add function common_blocked_queue_return_nodes
+  * add functions getIpAndPort and getPeerIpAndPort 
+  * bugfixed: call fast_mblock_destroy in common_blocked_queue_destroy
+  * add function fc_get_file_line_count_ex
+  * uniq_skiplist add function find_ge and support bidirection
+  * connection_pool support validate connection on error
+  * fast_task_queue.[hc]: free_queue support init_callback
+  * ini_file_reader.c: use mutex lock when access dynamic content array
+  * uniq_skiplist add function uniq_skiplist_replace_ex
+  * add files: fc_queue.[hc]
+  * add files: fc_memory.[hc]
+  * add files: shared_buffer.[hc]
+  * add files: thread_pool.[hc]
+  * shared_func.[hc]: add function fc_path_contains
+  * fast_mblock.[hc]: support alloc elements limit
+  * sockopt.[hc]: add function asyncconnectserverbyip
+  * add locked_timer.[hc]: time wheel timer with lock
+  * tcp_quick_ack option for Linux
+
+Version 1.43  2019-12-25
+  * replace function call system to getExecResult,
+    system is the deprecated function in iOS 11
+  * correct function skiplist_iterator in skiplist.h
+  * add buffered_file_writer.[hc]
+  * add function fc_delete_file_ex
+
+Version 1.42  2019-12-03
+  * add function get_gzip_command_filename
+  * function create_work_threads changed
+
+Version 1.41  2019-09-30
+  * change CIDR network_bits range from [16, 32) to [10, 32)
+  * ini_file_reader.c: fix empty string compare
+  * multi_socket_client.c: code refine
+  * sockopt.[hc] support IPv6
+
+Version 1.40  2018-11-09
+  * add function conn_pool_parse_server_info and conn_pool_load_server_info
+  * support directive: #@add_annotation, for example:
+    #@add_annotation CONFIG_GET /usr/lib/libshmcache.so /etc/libshmcache.conf
+  * add function fc_split_string and fc_match_delim
+  * add json_parser.[hc] for parse json array and map
+  * add function fc_strdup
+  * add function fc_memmem
+  * add function format_http_date
+  * add function hash_find1 and hash_find2
+  * add function resolve_path and fast_buffer_append_file
+  * add function id_generator_next_extra_ptr, with NULL pointer to set
+    extra data to sn % (1 << extra_bits)
+
+Version 1.39  2018-07-31
+  * add #@function REPLACE_VARS
+  * #@set value can embed %{VARIABLE}
+  * shared_func.h: add function starts_with and ends_with
+  * common_blocked_queue.h: add function common_blocked_queue_try_pop
+  * sched_thread.c: fix first schedule time
+  * ini_file_reader add function iniGetRequiredStrValueEx
+  * add file fc_list.h
+  * sockopt.c: add global variable try_again_when_interrupt
+
+Version 1.38  2018-06-26
+  * connection_pool.c: set err_no to 0 when success
+  * shared_func.h: add functions float2buff / buff2float, double2buff / buff2double
+  * logger.h: add function log_get_level_caption
+  * add files: common_blocked_queue.[hc]
+  * add files: multi_socket_client.[hc]
+  * ioevent.[hc]: remove care_events in FreeBSD or MacOS
+  * add skiplist_set.[hc] and skiplist bug fixed
+  * correct CRC32
+  * shared_func.h: add functions int2str and long2str
+  * sched_thread.h: add function sched_print_all_entries
+
+Version 1.37  2018-02-24
+  * ini_file_reader.c function annotations LOCAL_IP_GET support index, such as:
+   #@function LOCAL_IP_GET
+    bind_addr=private[0]
+
+Version 1.36  2017-03-08
+  * correct getFileContentEx read bytes
+
+Version 1.35  2017-03-02
+  * logger judge log_level in function log_it_ex and log_it_ex1
+  * add php extension function: fastcommon_file_put_contents
+  * add function fc_safe_read and fc_safe_write
+  * add function fc_ftok
+  * add function fc_trim to avoid conflict with trim
+  * ini_file_reader support annotataion map set incrementally
+  * init context support dynamic annotations and build-in annotations
+  * ini_file_reader disable shell execute in default
+
+Version 1.34  2017-02-06
+  * ini_file_reader: LOCAL_IP support CIDR addresses
+  * ini_file_reader: return the last when get single value,
+    such as iniGetStrValue and iniGetIntValue
+  * ini_file_reader support #@set directive
+  * ini_file_reader use extra context for compatible
+
+Version 1.33  2017-01-04
+  * add function hash_get_prime_capacity
+  * refine getFileContent log info
+  * show resource label when setrlimit fail
+
+Version 1.32  2016-12-01
+  * downgrade log level from warning to debug
+
+Version 1.31  2016-11-26
+  * move SET_SOCKOPT_NOSIGPIPE from sockopt.c to sockopt.h
+  * add function get_time_item_from_str
+  * add file trylock functions
+  * add files: char_converter.h and char_converter.c
+  * add files: char_convert_loader.h and char_convert_loader.c
+
+Version 1.30  2016-10-31
+  * modify php-fastcommon/test.php
+  * php7_ext_wrapper.h: fix memory leak in php 7
+  * setsockopt SO_NOSIGPIPE when nessary
+  * add function iovent_add_to_deleted_list
+  * fixbug for select with microseconds
+  * id generator support file mode
+
+Version 1.29  2016-06-17
+  * ini_file_reader support #@if
+  * ini_file_reader support #@for
+  * add function id_generator_get_timestamp
+
+Version 1.28  2016-06-08
+  * id generator support extra bits
+  * change inet_aton to inet_pton
+  * connect by ip and connection pool support ipv6
+  * id generator in php extension support multi instance
+  * add function http_parse_url_params
+  * check g_free_queue.head == NULL before free_queue_realloc()
+
+Version 1.27  2016-04-15
+  * add function fd_set_cloexec
+  * php-fastcommon.spec.in support PHP 7
+  * add file lock and unlock functions
+  * add id generator for multi processes
+  * php extension support id generator
+
+Version 1.26  2016-03-16
+  * add logger parameter: compress_log_days_before
+
+Version 1.25  2016-03-01
+  * php7_ext_wrapper.h add more macro defines
+  * compile passed in FreeBSD 10.2
+  * bugfixed: free task point correctly in free_queue_destroy
+  * logger support compress the log file
+
+Version 1.24  2016-02-15
+  * php extension compiled on PHP 7
+  * add skiplist which support stable sort
+  * make.sh: use sed to replace perl
+  * support get local mac addresses
+  * add system_info.h and system_info.c
+  * add function get_mounted_filesystems
+  * add function get_processes for Linux
+  * ini_file_reader add iniGetSectionNames and iniGetSectionItems
+  * add fast_blocked_queue.[hc]
+  * iovent bug fixed for FreeBSD
+  * sysinfo for FreeBSD
+  * add php7_ext_wrapper.h for php7 migration
+
+Version 1.23  2015-11-16
+  * sched_thread.c: task can execute in a new thread
+  * sched_thread.c: support delay tasks
+  * add function get_current_time_us and get_current_time_ms
+  * mblock add stat function
+  * add function get_sys_total_mem_size and get_sys_cpu_count,
+    ONLY support Linux and FreeBSD
+  * delay task can execute in a new thread
+  * fast_mblock reclaimed object pool
+  * add fast_allocator
+  * add fast_buffer
+
+Version 1.22  2015-10-10
+  * export php function: fastcommon_get_first_local_ip
+  * add function is_private_ip
+  * add function get_next_local_ip
+  * export php function: fastcommon_get_next_local_ip
+  * export php function: fastcommon_is_private_ip
+
+Version 1.21  2015-09-14
+  * ini_file_reader support annotation function
+  * correct PTHREAD_MUTEX_ERRORCHECK define
+  * support 32 bit OS
+  * allow_ips support CIDR addresses such as 172.16.12.0/22
+  * add function get_first_local_ip
+  * ioevent for BSD ok
+  * iniGetValues use iniGetValuesEx
+
+Version 1.20  2015-08-06
+  * add GEO function get_line_distance_km
+
+Version 1.19  2015-07-24
+  * correct logger rotate time near 0 clock
+
+Version 1.18  2015-07-15
+  * OS macro defines put in _os_define.h
+  * remove file _os_bits.h
+  * schedule task support second field
+
+Version 1.17  2015-07-14
+  * ini_file_reader.c change PJWHash to Time33Hash and increase capacity
+  * ini_file_reader.c realloc change to malloc and memcpy
+
+Version 1.16  2015-07-01
+  * fast_mblock add fast_mblock_delay_free
+  * add fast_mpool.h and fast_mpool.c
+
+Version 1.15  2015-06-16
+  * fast_mblock.c support none lock
+  * ioevent support set timeout
+  * fast_mblock support alloc and free object
+  * ini_file_reader set global section before and after directive #include
+
+Version 1.14  2015-06-12
+  * fast_task_info support set_buffer_size and realloc_buffer
+  * use file lock when write logger header
+  * bugfixed: sockopt.c correct fsbytes to sbytes in FreeBSD
+  * macro FDFS_WRITE_BUFF_SIZE change to FAST_WRITE_BUFF_SIZE
+  * logger.c call log_check_rotate in lock
+  * bug fixed: log header correctly when rotate
+
+Version 1.13  2015-02-27
+  * support php extension
+  * php extention export simple_hash and time33_hash
+  * set_run_by log more info
+
+Version 1.12  2014-12-05
+  * bug fixed: must check the return value of vsnprintf
+  * can call sched_add_entries many times before schedule
+
+Version 1.11  2014-11-20
+  * remove usleep call in logger.c
+  * bug fixed: NOT set last_block->next when realloc
+
+Version 1.10  2014-10-31
+  * correct iovent macro define
+  * must set timeout entry's dlink to NULL because NOT in time wheel
+
+Version 1.09  2014-10-26
+  * Version struct add variable: patch
+  * get local ipaddr support interface based 1
+  * mblock support alloc_init_func
+
+Version 1.08  2014-10-09
+  * sched_thread.c: calculate next_call_time correctly
+
+Version 1.07  2014-09-16
+  * increment alloc task buffer
+  * add function free_queue_alloc_connections
+  * check file size before log access header
+  * conn_pool_destroy close connections and free memory
+  * delete log old files with any time format affix
+
+Version 1.06  2014-08-27
+  * update source code from FastDFS V5.02
+  * add function short2buff and buff2short
+  * add object memory pool (fast_mblock.h and fast_mblock.c)
+  * add member thread_loop_callback in nio_thread_data
+  * bug fixed: ini_file_reader.c can't include relative path sub config,
+    such as #include ../../conf/common.conf
+  * add get_url_content_ex to support buffer passed by caller
+  * logger can set rotate time format
+  * add connection pool
+  * logger can log header line
+  * #include <stdbool.h> to use C99 bool
+  * add libfastcommon.spec for building RPM
+  * logger can delete old rotated files
+  * bug fixed: connection pool should NOT increase counter when connect fail
+  * logger.c do NOT call fsync after write
+  * sockopt.c add tcprecvdata_nb_ms to support millisecond timeout
+  * change req_count from int to int64_t
+  * logger can take over stderr and stdout
+  * replace INT64_PRINTF_FORMAT with PRId64
+  * support OS Darwin
+  * socket send and recv ignore erno EINTR
+  * http_parse_query_ex support binary buffer, and set both lengths of key and name
+  * add function ioevent_remove
+  * add function log_reopen_ex
+  * extern function log_rotate
+  * add function log_set_fd_flags
+
+Version 1.05  2012-07-08
+  * update source code from FastDFS V3.09
+
+Version 1.04  2011-01-31
+  * update source code from FastDFS V2.08
+
+Version 1.03  2010-11-16
+  * add local ip functions local_ip_func.c
+
+Version 1.02  2010-07-02
+  * sockopt.c: tcprecvfile and tcpdiscard add parameter total_recv_bytes
+  * sockopt.h add non-block connect function connectserverbyip_nb
+  * log_init set log to cache to false (no cache)
+
+Version 1.01  2010-05-15
+  * source file move to directory src
+  * header files add comments
+  * logger.h: correct function name from log_destory_ex to log_destroy_ex
+  * shared_func.h: getExeAbsolutePath change to getAbsolutePath
+
+Version 1.00  2010-05-08
+  * first version
+

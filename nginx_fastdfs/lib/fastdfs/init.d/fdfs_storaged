@@ -1,0 +1,74 @@
+#!/bin/bash
+#
+# fdfs_storaged Starts fdfs_storaged
+#
+#
+# chkconfig: 2345 99 01
+# description: FastDFS storage server
+### BEGIN INIT INFO
+# Provides: $fdfs_storaged
+### END INIT INFO
+
+# Source function library.
+if [ -f /etc/init.d/functions ]; then
+  . /etc/init.d/functions
+fi
+
+PRG=/usr/bin/fdfs_storaged
+CONF=/etc/fdfs/storage.conf
+
+if [ ! -f $PRG ]; then
+  echo "file $PRG does not exist!"
+  exit 2
+fi
+
+if [ ! -f $CONF ]; then
+  echo "file $CONF does not exist!"
+  exit 2
+fi
+
+CMD="$PRG $CONF"
+RETVAL=0
+
+start() {
+ 	echo -n "Starting FastDFS storage server: "
+	$CMD &
+	RETVAL=$?
+	echo
+	return $RETVAL
+}
+stop() {
+    $CMD stop
+	RETVAL=$?
+	return $RETVAL
+}
+rhstatus() {
+	status fdfs_storaged
+}
+restart() {
+        $CMD restart &
+}
+
+case "$1" in
+  start)
+  	start
+	;;
+  stop)
+  	stop
+	;;
+  status)
+  	rhstatus
+	;;
+  restart|reload)
+  	restart
+	;;
+  condrestart)
+  	restart
+	;;
+  *)
+	echo "Usage: $0 {start|stop|status|restart|condrestart}"
+	exit 1
+esac
+
+exit $?
+
