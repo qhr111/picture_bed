@@ -10,4 +10,5 @@ lsof -i:23000
 /usr/bin/fdfs_monitor /etc/fdfs/storage.conf
 
 # 启动 nginx
+chmod +x /usr/local/nginx/sbin/nginx
 /usr/local/nginx/sbin/nginx -g "daemon off;"
