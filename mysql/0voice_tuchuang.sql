@@ -1,10 +1,7 @@
-#数据库表
-#创建数据库
-DROP DATABASE IF EXISTS `0voice_tuchuang`;
-CREATE DATABASE `0voice_tuchuang`;
+DROP DATABASE IF EXISTS `tuchuang`;
+CREATE DATABASE `tuchuang`;
 
-#使用数据库
-use `0voice_tuchuang`;
+use `tuchuang`;
 
 
 DROP TABLE IF EXISTS `file_info`;

@@ -22,12 +22,16 @@ RUN sed -i 's|http://deb.debian.org|http://mirrors.aliyun.com|g' /etc/apt/source
     make \
     wget \
     lsof \
+    vim \
+    curl \
+    procps \
     # gcc \
     # libc6-dev \
     && rm -rf /var/lib/apt/lists/*
 
 COPY lib/zlib /app/zlib
 RUN cd /app/zlib && \
+    chmod +x /app/zlib/* && \
     # git checkout v1.2.11 && \
     ./configure && \
     make && make install
@@ -62,10 +66,12 @@ RUN wget https://www.openssl.org/source/openssl-1.1.1g.tar.gz && \
 COPY lib/libfastcommon /app/libfastcommon
 RUN cd /app/libfastcommon && \
     # git checkout V1.0.50 && \
+    chmod +x /app/libfastcommon/* && \
     ./make.sh && ./make.sh install
 
 COPY lib/fastdfs /app/fastdfs
 RUN cd /app/fastdfs && \
+    chmod +x /app/fastdfs/* && \
     # git checkout V6.07 && \
     ./make.sh && ./make.sh install
 
@@ -85,4 +91,4 @@ COPY fdfs/data_and_log /fastdfs_data_and_log
 COPY start_fdfs_nginx.sh /app/start_fdfs_nginx.sh
 RUN chmod +x /app/start_fdfs_nginx.sh
 
-CMD ["/app/start_fdfs_nginx.sh"]
+CMD ["bash", "/app/start_fdfs_nginx.sh"]
