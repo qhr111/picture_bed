@@ -72,6 +72,7 @@ const Login = () => {
 
   const onFinish = async (values) => {
     if (isRegister) {
+      // 注册时密码明文传输
       try {
         const data = await registerUser(values);
         if (data.code === 0) {
@@ -91,8 +92,10 @@ const Login = () => {
         console.error('注册错误：', error);
       }
     } else {
+      // 登录时密码 MD5 加密后传输
       try {
-        const data = await loginUser(values.username, values.password);
+        const encryptedPassword = calculateMD5(values.password);
+        const data = await loginUser(values.username, encryptedPassword);
         message.success('登录成功！');
         login({
           username: values.username,
