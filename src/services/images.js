@@ -52,7 +52,7 @@ export const uploadImage = async (file, user) => {
 };
 
 export const deleteImage = async (image, user) => {
-  const response = await fetch(`${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTSDEAL_FILE}?cmd=del`, {
+  const response = await fetch(`${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.DEAL_FILE}?cmd=del`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
